@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { MoreVertical, Send } from "lucide-react";
+import { MoreVertical, Send, ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -18,6 +19,7 @@ interface ChatAreaProps {
 }
 
 export function ChatArea({ characterName, characterImage }: ChatAreaProps) {
+  const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -72,6 +74,17 @@ export function ChatArea({ characterName, characterImage }: ChatAreaProps) {
       <div className="p-4 border-b border-border/50 bg-card/30 backdrop-blur-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
+            {/* Back Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => navigate('/')}
+              className="text-muted-foreground hover:text-foreground hover:bg-primary/10 hover:shadow-[0_0_10px_hsl(var(--primary)/0.3)] transition-all duration-200 min-w-[44px] min-h-[44px] group"
+              title="Back to Characters"
+            >
+              <ArrowLeft className="h-5 w-5 group-hover:brightness-125" />
+            </Button>
+            
             <div className="relative">
               <img
                 src={characterImage}
@@ -86,7 +99,7 @@ export function ChatArea({ characterName, characterImage }: ChatAreaProps) {
             </div>
           </div>
           
-          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
+          <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground min-w-[44px] min-h-[44px]">
             <MoreVertical className="h-5 w-5" />
           </Button>
         </div>
