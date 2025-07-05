@@ -173,5 +173,6 @@
   .rank-bronze { @apply text-orange-400 drop-shadow-[0_0_10px_rgba(251,146,60,0.5)]; }
   .rank-silver { @apply text-gray-300 drop-shadow-[0_0_10px_rgba(209,213,219,0.5)]; }
   .rank-gold { @apply text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]; }
+  .rank-platinum { @apply text-cyan-300 drop-shadow-[0_0_10px_rgba(165,243,252,0.5)]; }
   .rank-diamond { @apply text-gradient-purple drop-shadow-[0_0_10px_hsl(var(--primary)/0.7)]; }
 }
