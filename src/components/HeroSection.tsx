@@ -21,8 +21,8 @@ const characters = [
   {
     name: "Luna",
     age: 25,
-    personality: "Playful & creative",
-    image: lunaPortrait
+    personality: "Sweet & Inexperienced",
+    image: "/lovable-uploads/b823e47f-19fa-4e36-b79e-3586125288d7.png"
   },
   {
     name: "Sophia",
