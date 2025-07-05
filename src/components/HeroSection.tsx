@@ -13,10 +13,10 @@ const characters = [
     image: "/lovable-uploads/a03ac758-73b6-4504-9890-64d3c4fce204.png"
   },
   {
-    name: "Zoe", 
-    age: 22,
-    personality: "Sweet & adventurous",
-    image: zoePortrait
+    name: "Selene", 
+    age: 26,
+    personality: "Mysterious & Dangerous",
+    image: "/lovable-uploads/cc7b03d5-c44e-40d4-88c6-2ea2b9b8401c.png"
   },
   {
     name: "Luna",
