@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CharacterCard } from "./CharacterCard";
+import { useNavigate } from "react-router-dom";
 import avaPortrait from "@/assets/ava-portrait.jpg";
 import zoePortrait from "@/assets/zoe-portrait.jpg";
 import lunaPortrait from "@/assets/luna-portrait.jpg";
@@ -33,6 +34,13 @@ const characters = [
 ];
 
 export function HeroSection() {
+  const navigate = useNavigate();
+
+  const handleCharacterSelect = (characterName: string) => {
+    const routeName = characterName.toLowerCase();
+    navigate(`/chat/${routeName}`);
+  };
+
   return (
     <section className="hero-gradient min-h-screen flex flex-col items-center justify-center px-4 py-20">
       <div className="max-w-6xl mx-auto text-center">
@@ -67,7 +75,7 @@ export function HeroSection() {
                 age={character.age}
                 personality={character.personality}
                 image={character.image}
-                onSelect={() => console.log(`Selected ${character.name}`)}
+                onSelect={() => handleCharacterSelect(character.name)}
               />
             </div>
           ))}

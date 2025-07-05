@@ -97,8 +97,17 @@
   /* Character Card Components */
   .character-card {
     @apply relative overflow-hidden rounded-xl bg-gradient-to-b from-card to-card/50 border border-border/50;
-    @apply transition-all duration-300 hover:border-primary/50 hover:shadow-[var(--shadow-purple-glow)];
+    @apply transition-all duration-300 ease-out hover:border-primary/50 hover:shadow-[var(--shadow-purple-glow)];
     @apply hover:scale-[1.02] cursor-pointer;
+    @apply active:scale-[0.98] active:transition-transform active:duration-150;
+  }
+
+  .character-card img {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .character-card:hover img {
+    @apply brightness-110;
   }
 
   .character-card-selected {
