@@ -19,11 +19,10 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
 
   // Gallery images for the character
   const galleryImages = [
-    "/lovable-uploads/7c59cfd8-279d-458b-806f-b916d62a6750.png",
+    "/lovable-uploads/7ea74a32-347e-4948-961b-ec5ce72d35c1.png", // Primary image (was image 4)
     "/lovable-uploads/beab7e25-02fa-4d7f-a00f-45779fea7dd8.png", 
     "/lovable-uploads/26ba0944-b59c-4a72-87d4-a23bdb81c91b.png",
-    "/lovable-uploads/7ea74a32-347e-4948-961b-ec5ce72d35c1.png",
-    characterImage // Include the original character image
+    "/lovable-uploads/7c59cfd8-279d-458b-806f-b916d62a6750.png" // Was primary image
   ];
 
   // Auto-rotate images every 8 seconds
