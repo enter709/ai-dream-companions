@@ -178,6 +178,44 @@
     to { box-shadow: 0 0 40px hsl(var(--primary) / 0.8); }
   }
 
+  /* Message Bubble Tails and Animations */
+  .message-tail-user::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -6px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-left-color: #007AFF;
+    border-bottom: none;
+    transform: rotate(-45deg);
+  }
+
+  .message-tail-ai::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -6px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-right-color: #2A2A2A;
+    border-bottom: none;
+    transform: rotate(45deg);
+  }
+
+  @keyframes slideInMessage {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
   /* Progression System */
   .rank-bronze { @apply text-orange-400 drop-shadow-[0_0_10px_rgba(251,146,60,0.5)]; }
   .rank-silver { @apply text-gray-300 drop-shadow-[0_0_10px_rgba(209,213,219,0.5)]; }
