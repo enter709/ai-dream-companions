@@ -26,7 +26,7 @@ const charactersData = {
     name: "Mira",
     age: 28,
     personality: "Ambitious & Driven",
-    image: "/lovable-uploads/0eaed6a3-7ee3-4adf-ab68-b2ce9ed67ccb.png"
+    image: "/lovable-uploads/36ee09d4-3aba-4d75-9602-f36c37732c14.png"
   }
 };
 
