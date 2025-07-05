@@ -72,7 +72,7 @@ export function ConversationsSidebar({ currentCharacter }: ConversationsSidebarP
           <div
             key={conversation.id}
             className={`p-4 border-b border-border/30 cursor-pointer transition-all duration-200 hover:bg-accent/50 ${
-              conversation.isActive ? 'bg-primary/10 border-l-4 border-l-primary' : ''
+              conversation.isActive ? 'bg-primary/10 border-l-4 border-l-primary shadow-[0_0_20px_rgba(139,92,246,0.3)]' : ''
             }`}
           >
             <div className="flex items-start space-x-3">

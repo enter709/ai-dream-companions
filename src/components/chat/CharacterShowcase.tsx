@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ChevronDown, ChevronUp, Heart, MessageCircle, Calendar } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronDown, ChevronUp, Heart, MessageCircle, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -12,6 +12,32 @@ interface CharacterShowcaseProps {
 
 export function CharacterShowcase({ characterName, characterImage, age, personality }: CharacterShowcaseProps) {
   const [showCharacterInfo, setShowCharacterInfo] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Gallery images for the character
+  const galleryImages = [
+    "/lovable-uploads/7c59cfd8-279d-458b-806f-b916d62a6750.png",
+    "/lovable-uploads/beab7e25-02fa-4d7f-a00f-45779fea7dd8.png", 
+    "/lovable-uploads/26ba0944-b59c-4a72-87d4-a23bdb81c91b.png",
+    "/lovable-uploads/7ea74a32-347e-4948-961b-ec5ce72d35c1.png",
+    characterImage // Include the original character image
+  ];
+
+  // Auto-rotate images every 8 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [galleryImages.length]);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
 
   const rankBadges = {
     bronze: "/lovable-uploads/1d9b50db-4d62-4755-bd52-4b6330a570e1.png",
@@ -31,15 +57,42 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
 
   return (
     <div className="w-[350px] bg-card/50 backdrop-blur-sm border-l border-border/50 flex flex-col">
-      {/* Character Image */}
+      {/* Character Photo Gallery */}
       <div className="p-6">
-        <div className="relative rounded-2xl overflow-hidden">
+        <div className="relative rounded-2xl overflow-hidden group">
           <img
-            src={characterImage}
-            alt={characterName}
-            className="w-full h-80 object-cover"
+            src={galleryImages[currentImageIndex]}
+            alt={`${characterName} - Photo ${currentImageIndex + 1}`}
+            className="w-full h-80 object-cover transition-all duration-500 ease-in-out cursor-pointer hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevImage}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 opacity-0 group-hover:opacity-100"
+          >
+            <ChevronLeft className="w-4 h-4 text-white" />
+          </button>
+          <button
+            onClick={nextImage}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all duration-200 opacity-0 group-hover:opacity-100"
+          >
+            <ChevronRight className="w-4 h-4 text-white" />
+          </button>
+
+          {/* Dots Indicator */}
+          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex space-x-2">
+            {galleryImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                  index === currentImageIndex ? 'bg-white' : 'bg-white/50 hover:bg-white/70'
+                }`}
+              />
+            ))}
+          </div>
           
           {/* Character Info Overlay */}
           <div className="absolute bottom-4 left-4 right-4">
