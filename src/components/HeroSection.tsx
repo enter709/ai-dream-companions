@@ -9,8 +9,8 @@ const characters = [
   {
     name: "Ava",
     age: 24,
-    personality: "Intellectual & mysterious",
-    image: avaPortrait
+    personality: "Dominant & Confident",
+    image: "/lovable-uploads/a03ac758-73b6-4504-9890-64d3c4fce204.png"
   },
   {
     name: "Zoe", 
