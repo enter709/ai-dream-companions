@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp, Heart, MessageCircle, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { FullscreenGallery } from "./FullscreenGallery";
 
 interface CharacterShowcaseProps {
   characterName: string;
@@ -13,6 +14,8 @@ interface CharacterShowcaseProps {
 export function CharacterShowcase({ characterName, characterImage, age, personality }: CharacterShowcaseProps) {
   const [showCharacterInfo, setShowCharacterInfo] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [galleryImageIndex, setGalleryImageIndex] = useState(0);
 
   // Gallery images for the character
   const galleryImages = [
@@ -37,6 +40,15 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
+  const openGallery = (startIndex: number = 0) => {
+    setGalleryImageIndex(startIndex);
+    setIsGalleryOpen(true);
+  };
+
+  const closeGallery = () => {
+    setIsGalleryOpen(false);
   };
 
   const rankBadges = {
@@ -64,6 +76,7 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
             src={galleryImages[currentImageIndex]}
             alt={`${characterName} - Photo ${currentImageIndex + 1}`}
             className="w-full h-80 object-cover transition-all duration-500 ease-in-out cursor-pointer hover:scale-105"
+            onClick={() => openGallery(currentImageIndex)}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           
@@ -157,7 +170,10 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
 
       {/* Action Buttons */}
       <div className="px-6 space-y-3">
-        <Button className="w-full btn-primary-glow">
+        <Button 
+          className="w-full btn-primary-glow"
+          onClick={() => openGallery(0)}
+        >
           View Gallery
         </Button>
         
@@ -198,6 +214,15 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
           </div>
         </div>
       )}
+
+      {/* Fullscreen Gallery */}
+      <FullscreenGallery
+        images={galleryImages}
+        isOpen={isGalleryOpen}
+        currentIndex={galleryImageIndex}
+        onClose={closeGallery}
+        onNavigate={setGalleryImageIndex}
+      />
     </div>
   );
 }
