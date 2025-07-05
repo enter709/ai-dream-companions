@@ -1,40 +1,64 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { useParams } from "react-router-dom";
+import { ConversationsSidebar } from "@/components/chat/ConversationsSidebar";
+import { ChatArea } from "@/components/chat/ChatArea";
+import { CharacterShowcase } from "@/components/chat/CharacterShowcase";
 
-const characters = {
-  ava: "Ava",
-  selene: "Selene", 
-  luna: "Luna",
-  mira: "Mira"
+const charactersData = {
+  ava: {
+    name: "Ava",
+    age: 24,
+    personality: "Dominant & Confident",
+    image: "/lovable-uploads/a03ac758-73b6-4504-9890-64d3c4fce204.png"
+  },
+  selene: {
+    name: "Selene", 
+    age: 26,
+    personality: "Mysterious & Dangerous",
+    image: "/lovable-uploads/cc7b03d5-c44e-40d4-88c6-2ea2b9b8401c.png"
+  },
+  luna: {
+    name: "Luna",
+    age: 25,
+    personality: "Sweet & Inexperienced",
+    image: "/lovable-uploads/b823e47f-19fa-4e36-b79e-3586125288d7.png"
+  },
+  mira: {
+    name: "Mira",
+    age: 28,
+    personality: "Ambitious & Driven",
+    image: "/lovable-uploads/0eaed6a3-7ee3-4adf-ab68-b2ce9ed67ccb.png"
+  }
 };
 
 export default function ChatPage() {
   const { characterName } = useParams<{ characterName: string }>();
-  const navigate = useNavigate();
   
-  const displayName = characters[characterName as keyof typeof characters] || "Unknown";
+  const character = charactersData[characterName as keyof typeof charactersData];
+  
+  if (!character) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-foreground mb-4">Character not found</h1>
+          <p className="text-muted-foreground">Please select a valid character to chat with.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4">
-      <div className="max-w-2xl mx-auto text-center">
-        <h1 className="text-5xl sm:text-6xl font-bold text-white mb-8 hero-text-glow">
-          Chat with <span className="text-gradient-purple">{displayName}</span>
-        </h1>
-        
-        <p className="text-xl text-gray-300 mb-12">
-          Your conversation with {displayName} will begin here.
-        </p>
-        
-        <Button
-          onClick={() => navigate("/")}
-          variant="outline"
-          className="btn-ghost-glow text-white border-primary/30 px-8 py-4 text-lg"
-        >
-          <ArrowLeft className="mr-2 h-5 w-5" />
-          Back to Character Selection
-        </Button>
-      </div>
+    <div className="min-h-screen bg-background flex">
+      <ConversationsSidebar currentCharacter={characterName || ""} />
+      <ChatArea 
+        characterName={character.name} 
+        characterImage={character.image}
+      />
+      <CharacterShowcase 
+        characterName={character.name}
+        characterImage={character.image}
+        age={character.age}
+        personality={character.personality}
+      />
     </div>
   );
 }
