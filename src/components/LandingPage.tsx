@@ -4,6 +4,7 @@ import { FeaturesSection } from "./FeaturesSection";
 import { ProgressionSection } from "./ProgressionSection";
 import { TestimonialsSection } from "./TestimonialsSection";
 import { PricingSection } from "./PricingSection";
+import { FAQSection } from "./FAQSection";
 import { Footer } from "./Footer";
 
 export function LandingPage() {
@@ -15,6 +16,7 @@ export function LandingPage() {
       <ProgressionSection />
       <TestimonialsSection />
       <PricingSection />
+      <FAQSection />
       <Footer />
     </div>
   );
