@@ -2,6 +2,7 @@ import { Header } from "./Header";
 import { HeroSection } from "./HeroSection";
 import { FeaturesSection } from "./FeaturesSection";
 import { ShowcaseSection } from "./ShowcaseSection";
+import { ComparisonSection } from "./ComparisonSection";
 import { ProgressionSection } from "./ProgressionSection";
 import { TestimonialsSection } from "./TestimonialsSection";
 import { PricingSection } from "./PricingSection";
@@ -15,6 +16,7 @@ export function LandingPage() {
       <HeroSection />
       <FeaturesSection />
       <ShowcaseSection />
+      <ComparisonSection />
       <ProgressionSection />
       <TestimonialsSection />
       <PricingSection />
