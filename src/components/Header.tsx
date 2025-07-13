@@ -11,7 +11,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-3xl font-bold text-white tracking-tight">
+            <span className="text-2xl font-bold text-white tracking-tight">
               DEVOTION
             </span>
           </div>
