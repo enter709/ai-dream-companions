@@ -16,19 +16,19 @@ const characters = [
   {
     name: "Selene", 
     age: 26,
-    personality: "Mysterious & Dangerous",
+    personality: "Trouble Worth Having",
     image: "/lovable-uploads/cc7b03d5-c44e-40d4-88c6-2ea2b9b8401c.png"
   },
   {
     name: "Luna",
     age: 25,
-    personality: "Sweet & Inexperienced",
+    personality: "Dangerously Sweet",
     image: "/lovable-uploads/b823e47f-19fa-4e36-b79e-3586125288d7.png"
   },
   {
     name: "Mira",
     age: 28,
-    personality: "Ambitious & Driven",
+    personality: "Power Move Energy",
     image: "/lovable-uploads/36ee09d4-3aba-4d75-9602-f36c37732c14.png"
   }
 ];

@@ -15,7 +15,7 @@ export function Header() {
               <Heart className="w-6 h-6 text-white fill-current" />
             </div>
             <span className="text-2xl font-bold text-white">
-              Devotion<span className="text-gradient-purple">AI</span>
+              DevotionAI
             </span>
           </div>
           

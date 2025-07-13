@@ -35,8 +35,8 @@ export function CharacterCard({
           className="w-full h-80 sm:h-96 lg:h-[28rem] object-cover transition-transform duration-300 group-hover:scale-105"
         />
         
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-character" />
+        {/* HBO-style Bottom Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
         {/* Character Info Overlay */}
         <div className="absolute bottom-4 left-4 right-4">
