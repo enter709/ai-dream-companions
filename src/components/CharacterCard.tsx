@@ -32,7 +32,7 @@ export function CharacterCard({
         <img 
           src={image} 
           alt={`${name}, ${age}`}
-          className="w-full h-64 sm:h-80 object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-80 sm:h-96 lg:h-[28rem] object-cover transition-transform duration-300 group-hover:scale-105"
         />
         
         {/* Gradient Overlay */}

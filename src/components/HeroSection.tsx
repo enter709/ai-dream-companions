@@ -45,9 +45,9 @@ export function HeroSection() {
     <section className="hero-gradient min-h-screen flex flex-col items-center justify-center px-4 py-20">
       <div className="max-w-6xl mx-auto text-center">
         {/* Hero Text */}
-        <div className="mb-16">
+        <div className="mb-8">
           <h1 className="text-5xl sm:text-7xl font-bold text-white mb-6 hero-text-glow">
-            She actually remembers.
+            She actually remembers
           </h1>
           
           <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
@@ -65,7 +65,7 @@ export function HeroSection() {
         </div>
         
         {/* Character Preview Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {characters.map((character, index) => (
             <div key={character.name} className="float-animation" style={{ animationDelay: `${index * 0.5}s` }}>
               <CharacterCard
