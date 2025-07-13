@@ -151,12 +151,9 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
               <h3 className="font-semibold text-primary text-sm uppercase tracking-wide">
                 BRONZE TIER
               </h3>
-              <span className="text-xs text-primary font-medium">15/50</span>
+              <span className="text-xs text-muted-foreground font-medium">15/50 messages</span>
             </div>
-            <Progress value={30} className="h-2" />
-            <p className="text-xs text-muted-foreground">
-              Unlock: Bronze Tier
-            </p>
+            <Progress value={30} className="h-2 bg-muted [&>div]:bg-gradient-to-r [&>div]:from-slate-200 [&>div]:to-white" />
           </div>
         </Card>
       </div>
