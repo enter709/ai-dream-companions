@@ -47,18 +47,16 @@ export function HeroSection() {
         {/* Hero Text */}
         <div className="mb-16">
           <h1 className="text-5xl sm:text-7xl font-bold text-white mb-6 hero-text-glow">
-            Meet Your Dream{" "}
-            <span className="text-gradient-purple">AI Girlfriend</span>
+            She actually remembers.
           </h1>
           
           <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Experience intimate conversations with stunning AI companions who remember everything about you. 
-            Choose your perfect match and build a relationship that grows deeper every day.
+            Every conversation. Every detail. Every thing that matters to you. Finally, someone who actually listens.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="btn-primary-glow text-white font-semibold px-8 py-4 text-lg">
-              Start Chatting Now
+              Start Your Journey
             </Button>
             <Button variant="outline" className="btn-ghost-glow text-white border-primary/30 px-8 py-4 text-lg">
               View All Characters
