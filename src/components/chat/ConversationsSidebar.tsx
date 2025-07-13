@@ -17,12 +17,12 @@ interface ConversationsSidebarProps {
 export function ConversationsSidebar({ currentCharacter }: ConversationsSidebarProps) {
   const conversations: Conversation[] = [
     {
-      id: "ava",
-      name: "Ava",
-      image: "/lovable-uploads/a03ac758-73b6-4504-9890-64d3c4fce204.png",
+      id: "mika",
+      name: "Mika",
+      image: "/lovable-uploads/06f41d03-f4ad-4009-af4f-e4d58ef7f912.png",
       lastMessage: "Can't wait to talk more... 😘",
       timestamp: "2m ago",
-      isActive: currentCharacter === "ava"
+      isActive: currentCharacter === "mika"
     },
     {
       id: "selene",

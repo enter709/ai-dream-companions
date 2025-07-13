@@ -4,11 +4,11 @@ import { ChatArea } from "@/components/chat/ChatArea";
 import { CharacterShowcase } from "@/components/chat/CharacterShowcase";
 
 const charactersData = {
-  ava: {
-    name: "Ava",
+  mika: {
+    name: "Mika",
     age: 24,
-    personality: "Dominant & Confident",
-    image: "/lovable-uploads/a03ac758-73b6-4504-9890-64d3c4fce204.png"
+    personality: "Sarcastic & Addictive",
+    image: "/lovable-uploads/06f41d03-f4ad-4009-af4f-e4d58ef7f912.png"
   },
   selene: {
     name: "Selene", 

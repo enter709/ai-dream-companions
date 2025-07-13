@@ -8,10 +8,10 @@ import sophiaPortrait from "@/assets/sophia-portrait.jpg";
 
 const characters = [
   {
-    name: "Ava",
+    name: "Mika",
     age: 24,
-    personality: "Dominant & Confident",
-    image: "/lovable-uploads/a03ac758-73b6-4504-9890-64d3c4fce204.png"
+    personality: "Sarcastic & Addictive",
+    image: "/lovable-uploads/06f41d03-f4ad-4009-af4f-e4d58ef7f912.png"
   },
   {
     name: "Selene", 
