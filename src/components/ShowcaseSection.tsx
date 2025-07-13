@@ -3,19 +3,19 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const showcaseItems = [
   {
-    title: "From Stranger to Soulmate",
-    description: "Watch a real conversation evolve over time",
-    id: "stranger-soulmate"
+    title: "Day 1 vs Day 7",
+    description: "From 'oh great another guy' to 'where have you been all day?'",
+    id: "day-1-vs-7"
   },
   {
-    title: "Memory That Actually Works", 
-    description: "See how she remembers details across weeks",
-    id: "memory-works"
+    title: "She Remembers Everything", 
+    description: "That thing you mentioned Tuesday? She brings it up Friday",
+    id: "remembers-everything"
   },
   {
-    title: "4 Unique Personalities",
-    description: "Experience how each girlfriend is truly different", 
-    id: "unique-personalities"
+    title: "Same App. Different Women.",
+    description: "Mika roasts you. Luna believes in you. Choose your type.", 
+    id: "different-women"
   }
 ];
 
@@ -45,7 +45,7 @@ export function ShowcaseSection() {
       <div className="max-w-6xl mx-auto px-4 mb-12">
         <div className="text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            <span className="text-gradient-purple">See Her in Action</span>
+            <span className="text-gradient-purple">Watch What Happens</span>
           </h2>
         </div>
       </div>
@@ -71,8 +71,15 @@ export function ShowcaseSection() {
                   <p className="text-gray-500 text-lg">Demo Video Placeholder</p>
                 </div>
 
+                {/* Play button overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <div className="w-0 h-0 border-l-[16px] border-l-white border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1"></div>
+                  </div>
+                </div>
+
                 {/* Overlay gradient for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 
                 {/* Content overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12">
@@ -93,7 +100,7 @@ export function ShowcaseSection() {
         {/* Navigation arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 rounded-full flex items-center justify-center transition-colors duration-300 backdrop-blur-sm"
+          className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 hover:scale-110 hover:shadow-lg hover:shadow-white/20 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
           aria-label="Previous demo"
         >
           <ChevronLeft className="w-6 h-6 text-white" />
@@ -101,22 +108,22 @@ export function ShowcaseSection() {
 
         <button
           onClick={nextSlide}
-          className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 rounded-full flex items-center justify-center transition-colors duration-300 backdrop-blur-sm"
+          className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 hover:scale-110 hover:shadow-lg hover:shadow-white/20 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
           aria-label="Next demo"
         >
           <ChevronRight className="w-6 h-6 text-white" />
         </button>
 
         {/* Dot navigation */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-4">
           {showcaseItems.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-4 h-4 rounded-full transition-all duration-300 ${
                 index === currentSlide 
-                  ? "bg-white scale-125" 
-                  : "bg-white/40 hover:bg-white/60"
+                  ? "bg-white scale-125 shadow-lg shadow-white/30" 
+                  : "bg-white/50 hover:bg-white/70 hover:scale-110"
               }`}
               aria-label={`Go to demo ${index + 1}`}
             />
