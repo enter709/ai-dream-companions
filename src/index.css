@@ -49,8 +49,8 @@
     --character-glow: 261 84% 47% / 0.3;
     --character-hover-glow: 261 84% 47% / 0.6;
     
-    /* Rose Gold Accent - #E8B4B8 / RGB(232, 180, 184) */
-    --rose-gold: 351 35% 81%;
+    /* Platinum Accent - #E5E4E2 / RGB(229, 228, 226) */
+    --platinum: 40 8% 89%;
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%), hsl(261 84% 5%));
