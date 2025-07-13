@@ -17,13 +17,39 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [galleryImageIndex, setGalleryImageIndex] = useState(0);
 
-  // Gallery images for the character
-  const galleryImages = [
-    "/lovable-uploads/7ea74a32-347e-4948-961b-ec5ce72d35c1.png", // Primary image (was image 4)
-    "/lovable-uploads/beab7e25-02fa-4d7f-a00f-45779fea7dd8.png", 
-    "/lovable-uploads/26ba0944-b59c-4a72-87d4-a23bdb81c91b.png",
-    "/lovable-uploads/7c59cfd8-279d-458b-806f-b916d62a6750.png" // Was primary image
-  ];
+  // Character-specific gallery images
+  const characterGalleries = {
+    Mika: [
+      "/lovable-uploads/aa6c71b7-944a-42d6-a9a1-821216d57ee8.png",
+      "/lovable-uploads/9e9ded66-e51d-4148-9680-b76c117d4d5f.png", 
+      "/lovable-uploads/ae833e75-b44a-4660-aba8-b3bf36c3c6fb.png",
+      "/lovable-uploads/2df50f11-1a39-4f73-97d4-4465630689c8.png",
+      "/lovable-uploads/63d1e4c0-3b67-43eb-bdd9-5954e571f299.png"
+    ],
+    Mira: [
+      "/lovable-uploads/7ea74a32-347e-4948-961b-ec5ce72d35c1.png",
+      "/lovable-uploads/beab7e25-02fa-4d7f-a00f-45779fea7dd8.png", 
+      "/lovable-uploads/26ba0944-b59c-4a72-87d4-a23bdb81c91b.png",
+      "/lovable-uploads/7c59cfd8-279d-458b-806f-b916d62a6750.png",
+      "/lovable-uploads/36ee09d4-3aba-4d75-9602-f36c37732c14.png"
+    ],
+    Selene: [
+      "/lovable-uploads/cc7b03d5-c44e-40d4-88c6-2ea2b9b8401c.png",
+      "/lovable-uploads/cc7b03d5-c44e-40d4-88c6-2ea2b9b8401c.png", 
+      "/lovable-uploads/cc7b03d5-c44e-40d4-88c6-2ea2b9b8401c.png",
+      "/lovable-uploads/cc7b03d5-c44e-40d4-88c6-2ea2b9b8401c.png",
+      "/lovable-uploads/cc7b03d5-c44e-40d4-88c6-2ea2b9b8401c.png"
+    ],
+    Luna: [
+      "/lovable-uploads/b823e47f-19fa-4e36-b79e-3586125288d7.png",
+      "/lovable-uploads/b823e47f-19fa-4e36-b79e-3586125288d7.png", 
+      "/lovable-uploads/b823e47f-19fa-4e36-b79e-3586125288d7.png",
+      "/lovable-uploads/b823e47f-19fa-4e36-b79e-3586125288d7.png",
+      "/lovable-uploads/b823e47f-19fa-4e36-b79e-3586125288d7.png"
+    ]
+  };
+
+  const galleryImages = characterGalleries[characterName as keyof typeof characterGalleries] || characterGalleries.Mika;
 
   // Auto-rotate images every 8 seconds
   useEffect(() => {
