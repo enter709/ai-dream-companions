@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp, Heart, MessageCircle, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import { FullscreenGallery } from "./FullscreenGallery";
 
 interface CharacterShowcaseProps {
@@ -142,23 +143,20 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
         </div>
       </div>
 
-      {/* Rank Badge */}
+      {/* Progress Section */}
       <div className="px-6 mb-6">
         <Card className="p-4 bg-gradient-to-r from-card to-card/50 border-primary/20">
-          <div className="flex items-center space-x-3">
-            <img 
-              src={rankBadges[stats.currentRank as keyof typeof rankBadges]} 
-              alt="Rank badge"
-              className="w-12 h-12"
-            />
-            <div>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
               <h3 className="font-semibold text-primary text-sm uppercase tracking-wide">
-                {stats.currentRank} Tier
+                BRONZE TIER
               </h3>
-              <p className="text-xs text-muted-foreground">
-                Intimate relationship
-              </p>
+              <span className="text-xs text-primary font-medium">15/50</span>
             </div>
+            <Progress value={30} className="h-2" />
+            <p className="text-xs text-muted-foreground">
+              Unlock: Bronze Tier
+            </p>
           </div>
         </Card>
       </div>
