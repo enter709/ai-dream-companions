@@ -166,7 +166,7 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
               <MessageCircle className="h-4 w-4 text-primary/80" />
               <span className="text-sm text-foreground/90">Messages</span>
             </div>
-            <span className="font-semibold text-primary">{stats.messagesExchanged.toLocaleString()}</span>
+            <span className="font-semibold" style={{ color: 'hsl(351 35% 81%)' }}>{stats.messagesExchanged.toLocaleString()}</span>
           </div>
           
           <div className="flex items-center justify-between p-4 rounded-xl bg-card/40 border border-border/30 shadow-sm backdrop-blur-sm">
@@ -174,7 +174,7 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
               <Calendar className="h-4 w-4 text-primary/80" />
               <span className="text-sm text-foreground/90">Days together</span>
             </div>
-            <span className="font-semibold text-primary">{stats.daysTogether}</span>
+            <span className="font-semibold" style={{ color: 'hsl(351 35% 81%)' }}>{stats.daysTogether}</span>
           </div>
           
           <div className="flex items-center justify-between p-4 rounded-xl bg-card/40 border border-border/30 shadow-sm backdrop-blur-sm">
@@ -182,7 +182,7 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
               <Heart className="h-4 w-4 text-primary/80" />
               <span className="text-sm text-foreground/90">Current mood</span>
             </div>
-            <span className="font-semibold text-primary">{stats.mood}</span>
+            <span className="font-semibold" style={{ color: 'hsl(351 35% 81%)' }}>{stats.mood}</span>
           </div>
         </div>
       </div>
