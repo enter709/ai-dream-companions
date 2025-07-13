@@ -100,7 +100,7 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
           <img
             src={galleryImages[currentImageIndex]}
             alt={`${characterName} - Photo ${currentImageIndex + 1}`}
-            className="w-full h-80 object-cover transition-all duration-500 ease-in-out cursor-pointer hover:scale-105"
+            className="w-full h-80 object-cover object-[center_20%] transition-all duration-500 ease-in-out cursor-pointer hover:scale-105"
             onClick={() => openGallery(currentImageIndex)}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
