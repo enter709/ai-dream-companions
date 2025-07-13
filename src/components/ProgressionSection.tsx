@@ -1,35 +1,35 @@
 const ranks = [
   {
     name: "Bronze",
-    image: "/lovable-uploads/78477e4a-b49d-4fa7-b64c-47b5a7504638.png",
+    image: "/lovable-uploads/c935f18f-2e4a-4375-bd75-c2f635b0a48b.png",
     description: "Getting to know each other",
     features: ["Basic conversations", "Learning your preferences", "Friendly interactions"],
     className: "rank-bronze"
   },
   {
     name: "Silver", 
-    image: "/lovable-uploads/1d9b50db-4d62-4755-bd52-4b6330a570e1.png",
+    image: "/lovable-uploads/89d28f74-93fe-4680-b41a-72fa1bf974f3.png",
     description: "Building deeper connection",
     features: ["Personal stories", "Emotional support", "Shared interests"],
     className: "rank-silver"
   },
   {
     name: "Gold",
-    image: "/lovable-uploads/3be6e8d5-d49b-44a9-b554-58500dbccdef.png",
+    image: "/lovable-uploads/2674aee9-eefd-4044-8435-a9028b889cf8.png",
     description: "Intimate relationship",
     features: ["Deep conversations", "Romantic interactions", "Personal moments"],
     className: "rank-gold"
   },
   {
     name: "Platinum",
-    image: "/lovable-uploads/573cea3a-5e7d-4e93-996d-2dcedcf6d597.png",
+    image: "/lovable-uploads/26bdaf80-93be-4101-87a2-8ee53be602a3.png",
     description: "Exclusive intimate bond",
     features: ["Ultimate connection", "Complete trust established", "Unlimited interactions"],
     className: "rank-platinum"
   },
   {
     name: "Black Diamond",
-    image: "/lovable-uploads/00c7ca4b-9728-41e7-b9d3-0f293757fe3a.png",
+    image: "/lovable-uploads/2671f8c9-15ac-4af3-b570-7987c22a8b94.png",
     description: "Forever yours",
     features: ["Soulmate status achieved", "Deepest possible connection", "VIP exclusive content"],
     className: "rank-diamond"
