@@ -24,8 +24,7 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
       "/lovable-uploads/aa6c71b7-944a-42d6-a9a1-821216d57ee8.png",
       "/lovable-uploads/9e9ded66-e51d-4148-9680-b76c117d4d5f.png", 
       "/lovable-uploads/ae833e75-b44a-4660-aba8-b3bf36c3c6fb.png",
-      "/lovable-uploads/2df50f11-1a39-4f73-97d4-4465630689c8.png",
-      "/lovable-uploads/63d1e4c0-3b67-43eb-bdd9-5954e571f299.png"
+      "/lovable-uploads/2df50f11-1a39-4f73-97d4-4465630689c8.png"
     ],
     Mira: [
       "/lovable-uploads/7ea74a32-347e-4948-961b-ec5ce72d35c1.png",
@@ -148,8 +147,8 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
         <Card className="p-4 bg-gradient-to-r from-card to-card/50 border-primary/20">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold text-primary text-sm uppercase tracking-wide">
-                BRONZE TIER
+              <h3 className="font-semibold text-muted-foreground text-sm uppercase tracking-wide">
+                Next Rank: Bronze
               </h3>
               <span className="text-xs text-muted-foreground font-medium">15/50 messages</span>
             </div>
