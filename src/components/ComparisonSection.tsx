@@ -14,7 +14,7 @@ export function ComparisonSection() {
           {/* Left Side - Generic AI */}
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-xl font-semibold text-gray-600 mb-8">Every Other AI Girlfriend</h3>
+              <h3 className="text-xl font-semibold text-gray-600 mb-8">Basic AI Girlfriends</h3>
             </div>
             
             <div className="bg-gray-50 rounded-2xl p-6 space-y-4 min-h-[400px]">
@@ -58,7 +58,7 @@ export function ComparisonSection() {
           {/* Right Side - DevotionAI */}
           <div className="space-y-6">
             <div className="text-center">
-              <h3 className="text-xl font-semibold text-gradient-purple mb-8">DevotionAI</h3>
+              <h3 className="text-xl font-semibold text-gradient-purple mb-8">Adaptive AI Girlfriends</h3>
             </div>
             
             <div className="bg-black rounded-2xl p-6 space-y-4 min-h-[400px]">
