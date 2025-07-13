@@ -96,11 +96,11 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
     <div className="w-[350px] bg-card/50 backdrop-blur-sm border-l border-border/50 flex flex-col">
       {/* Character Photo Gallery */}
       <div className="p-6">
-        <div className="relative rounded-2xl overflow-hidden group">
+        <div className="relative rounded-2xl overflow-hidden group shadow-xl">
           <img
             src={galleryImages[currentImageIndex]}
             alt={`${characterName} - Photo ${currentImageIndex + 1}`}
-            className="w-full h-80 object-cover object-[center_20%] transition-all duration-500 ease-in-out cursor-pointer hover:scale-105"
+            className="w-full h-96 object-cover object-[center_20%] transition-all duration-500 ease-in-out cursor-pointer hover:scale-105"
             onClick={() => openGallery(currentImageIndex)}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -161,26 +161,26 @@ export function CharacterShowcase({ characterName, characterImage, age, personal
       <div className="px-6 mb-6">
         <h3 className="font-semibold text-foreground mb-4">Relationship Stats</h3>
         <div className="space-y-3">
-          <div className="flex items-center justify-between p-3 rounded-lg bg-accent/30">
-            <div className="flex items-center space-x-2">
-              <MessageCircle className="h-4 w-4 text-primary" />
-              <span className="text-sm text-foreground">Messages</span>
+          <div className="flex items-center justify-between p-4 rounded-xl bg-card/40 border border-border/30 shadow-sm backdrop-blur-sm">
+            <div className="flex items-center space-x-3">
+              <MessageCircle className="h-4 w-4 text-primary/80" />
+              <span className="text-sm text-foreground/90">Messages</span>
             </div>
             <span className="font-semibold text-primary">{stats.messagesExchanged.toLocaleString()}</span>
           </div>
           
-          <div className="flex items-center justify-between p-3 rounded-lg bg-accent/30">
-            <div className="flex items-center space-x-2">
-              <Calendar className="h-4 w-4 text-primary" />
-              <span className="text-sm text-foreground">Days together</span>
+          <div className="flex items-center justify-between p-4 rounded-xl bg-card/40 border border-border/30 shadow-sm backdrop-blur-sm">
+            <div className="flex items-center space-x-3">
+              <Calendar className="h-4 w-4 text-primary/80" />
+              <span className="text-sm text-foreground/90">Days together</span>
             </div>
             <span className="font-semibold text-primary">{stats.daysTogether}</span>
           </div>
           
-          <div className="flex items-center justify-between p-3 rounded-lg bg-accent/30">
-            <div className="flex items-center space-x-2">
-              <Heart className="h-4 w-4 text-primary" />
-              <span className="text-sm text-foreground">Current mood</span>
+          <div className="flex items-center justify-between p-4 rounded-xl bg-card/40 border border-border/30 shadow-sm backdrop-blur-sm">
+            <div className="flex items-center space-x-3">
+              <Heart className="h-4 w-4 text-primary/80" />
+              <span className="text-sm text-foreground/90">Current mood</span>
             </div>
             <span className="font-semibold text-primary">{stats.mood}</span>
           </div>

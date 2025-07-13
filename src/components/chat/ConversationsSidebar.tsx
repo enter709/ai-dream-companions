@@ -71,34 +71,34 @@ export function ConversationsSidebar({ currentCharacter }: ConversationsSidebarP
         {conversations.map((conversation) => (
           <div
             key={conversation.id}
-            className={`p-4 border-b border-border/30 cursor-pointer transition-all duration-200 hover:bg-accent/50 ${
+            className={`py-5 px-6 border-b border-border/20 cursor-pointer transition-all duration-200 hover:bg-accent/30 ${
               conversation.isActive ? 'bg-primary/10 border-l-4 border-l-primary shadow-[0_0_20px_rgba(139,92,246,0.3)]' : ''
             }`}
           >
-            <div className="flex items-start space-x-3">
+            <div className="flex items-start space-x-4">
               {/* Profile Image */}
               <div className="relative">
                 <img
                   src={conversation.image}
                   alt={conversation.name}
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-14 h-14 rounded-full object-cover"
                 />
                 <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-card rounded-full"></div>
               </div>
 
               {/* Conversation Info */}
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between mb-1">
-                  <h3 className={`font-medium truncate ${
+              <div className="flex-1 min-w-0 py-1">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className={`font-medium text-[15px] truncate ${
                     conversation.isActive ? 'text-primary' : 'text-foreground'
                   }`}>
                     {conversation.name}
                   </h3>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-xs text-muted-foreground font-medium">
                     {conversation.timestamp}
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground truncate">
+                <p className="text-sm text-muted-foreground/80 truncate leading-relaxed">
                   {conversation.lastMessage}
                 </p>
               </div>

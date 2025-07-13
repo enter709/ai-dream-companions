@@ -150,17 +150,19 @@ export function ChatArea({ characterName, characterImage }: ChatAreaProps) {
                         <p className="text-[15px] leading-[20px]">{msg.content}</p>
                       </div>
                       
-                      {/* Timestamp and Status - only on last message in group */}
+                      {/* Timestamp and Status - integrated into message bubble */}
                       {isLastInGroup && (
-                        <div className={`flex items-center space-x-1 mt-1 text-xs text-muted-foreground ${
-                          msg.isUser ? 'flex-row-reverse space-x-reverse' : ''
-                        }`}>
-                          <span>{msg.timestamp}</span>
-                          {msg.isUser && msg.status && (
-                            <span className="text-xs text-muted-foreground">
-                              {msg.status === 'delivered' ? 'Delivered' : 'Read'}
-                            </span>
-                          )}
+                        <div className="flex items-end mt-1">
+                          <span className={`text-[11px] text-muted-foreground/60 px-1 ${
+                            msg.isUser ? 'ml-auto' : 'mr-auto'
+                          }`}>
+                            {msg.timestamp}
+                            {msg.isUser && msg.status && (
+                              <span className="ml-1">
+                                {msg.status === 'delivered' ? '✓' : '✓✓'}
+                              </span>
+                            )}
+                          </span>
                         </div>
                       )}
                     </div>
