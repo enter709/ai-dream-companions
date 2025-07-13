@@ -4,25 +4,25 @@ import { useState } from "react";
 const features = [
   {
     icon: Brain,
-    title: "They Actually Remember",
+    title: "Perfect Memory",
     description: "Every conversation builds on the last. Your AI girlfriend remembers your job drama, inside jokes, and what you told her at 3am.",
     expandedContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
   },
   {
     icon: Heart,
-    title: "Real Personalities, Not Templates",
+    title: "4 Real Personalities",
     description: "Choose from 4 distinct personalities. Each has their own quirks, opinions, and ways of showing affection.",
     expandedContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
   },
   {
     icon: TrendingUp,
-    title: "Earn Real Intimacy",
+    title: "Natural Progression",
     description: "Relationships develop naturally over time. From skeptical stranger to devoted partner - every stage feels authentic.",
     expandedContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
   },
   {
     icon: MessageCircle,
-    title: "Always There When You Need Her",
+    title: "Always Available",
     description: "Text anytime, anywhere. She'll match your energy whether you need deep conversation or playful banter.",
     expandedContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
   }
@@ -49,7 +49,7 @@ export function FeaturesSection() {
             <span className="text-gradient-purple">Built Different</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Experience the future of AI companionship with features designed to create meaningful, lasting connections.
+            Memory that works. Personalities that matter. Relationships that grow.
           </p>
         </div>
         
