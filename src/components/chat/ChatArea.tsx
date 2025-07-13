@@ -94,7 +94,7 @@ export function ChatArea({ characterName, characterImage }: ChatAreaProps) {
               <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border-2 border-card rounded-full"></div>
             </div>
             <div>
-              <h2 className="font-semibold text-foreground">{characterName}</h2>
+              <h2 className="font-bold text-[17px] text-foreground">{characterName}</h2>
               <p className="text-sm text-primary">Online • Feeling playful</p>
             </div>
           </div>
@@ -138,13 +138,16 @@ export function ChatArea({ characterName, characterImage }: ChatAreaProps) {
                     <div className={`flex flex-col ${msg.isUser ? 'items-end' : 'items-start'} max-w-[75%]`}>
                       {/* Message Bubble */}
                       <div 
-                        className={`px-4 py-3 rounded-[18px] relative message-bubble ${
+                        className={`px-4 py-3 rounded-[18px] relative message-bubble shadow-sm ${
                           msg.isUser 
-                            ? `bg-[#007AFF] text-white ${isLastInGroup ? 'message-tail-user' : ''}` 
-                            : `bg-[#2A2A2A] text-white ${isLastInGroup ? 'message-tail-ai' : ''}`
+                            ? `bg-[#007AFF] text-white shadow-blue-500/20 ${isLastInGroup ? 'message-tail-user' : ''}` 
+                            : `bg-[#2A2A2A] text-white shadow-black/30 ${isLastInGroup ? 'message-tail-ai' : ''}`
                         }`}
                         style={{
-                          animation: 'slideInMessage 0.3s ease-out'
+                          animation: 'slideInMessage 0.3s ease-out',
+                          boxShadow: msg.isUser 
+                            ? '0 2px 8px rgba(0, 122, 255, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1)' 
+                            : '0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15)'
                         }}
                       >
                         <p className="text-[15px] leading-[20px]">{msg.content}</p>
@@ -180,7 +183,11 @@ export function ChatArea({ characterName, characterImage }: ChatAreaProps) {
                 alt={characterName}
                 className="w-8 h-8 rounded-full object-cover flex-shrink-0"
               />
-              <div className="bg-[#2A2A2A] text-white px-4 py-3 rounded-[18px] message-tail-ai">
+              <div className="bg-[#2A2A2A] text-white px-4 py-3 rounded-[18px] message-tail-ai shadow-sm"
+                style={{
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15)'
+                }}
+              >
                 <div className="flex items-center space-x-1">
                   <span className="text-[15px]">{characterName} is typing</span>
                   <div className="flex space-x-1 ml-1">
@@ -196,7 +203,7 @@ export function ChatArea({ characterName, characterImage }: ChatAreaProps) {
       </ScrollArea>
 
       {/* Input Area */}
-      <div className="p-4 border-t border-border/50 bg-card/30 backdrop-blur-sm">
+      <div className="p-4 border-t border-border/30 bg-gradient-to-t from-card/60 to-card/30 backdrop-blur-md">
         <div className="flex items-center space-x-3">
           <div className="flex-1 relative">
             <Input
@@ -204,20 +211,32 @@ export function ChatArea({ characterName, characterImage }: ChatAreaProps) {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="rounded-[20px] bg-input/50 border-border/50 focus:border-primary/50 pr-32 py-3 shadow-inner"
+              className="rounded-[24px] bg-background/80 border-border/40 focus:border-primary/60 focus:bg-background/90 pr-36 py-3 shadow-sm backdrop-blur-sm transition-all duration-200 text-[15px] h-12"
               style={{
-                boxShadow: 'inset 0 1px 2px rgba(0, 0, 0, 0.1)'
+                boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05)'
               }}
             />
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-1">
-              <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
-                📷
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-8 w-8 text-muted-foreground hover:text-foreground hover:bg-primary/10 rounded-full transition-all duration-200"
+              >
+                <span className="text-[16px]">📷</span>
               </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
-                🎤
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-8 w-8 text-muted-foreground hover:text-foreground hover:bg-primary/10 rounded-full transition-all duration-200"
+              >
+                <span className="text-[16px]">🎤</span>
               </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
-                ✨
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="h-8 w-8 text-muted-foreground hover:text-foreground hover:bg-primary/10 rounded-full transition-all duration-200"
+              >
+                <span className="text-[16px]">✨</span>
               </Button>
             </div>
           </div>
@@ -225,11 +244,16 @@ export function ChatArea({ characterName, characterImage }: ChatAreaProps) {
           <Button
             onClick={handleSendMessage}
             disabled={!message.trim()}
-            className={`rounded-full w-10 h-10 p-0 transition-all duration-200 ${
+            className={`rounded-full w-11 h-11 p-0 transition-all duration-200 shadow-sm ${
               message.trim() 
-                ? 'bg-[#007AFF] hover:bg-[#0051D2] text-white shadow-md' 
-                : 'bg-muted text-muted-foreground'
+                ? 'bg-[#007AFF] hover:bg-[#0051D2] text-white shadow-blue-500/30 hover:shadow-blue-500/40' 
+                : 'bg-muted text-muted-foreground shadow-none'
             }`}
+            style={{
+              boxShadow: message.trim() 
+                ? '0 2px 8px rgba(0, 122, 255, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1)' 
+                : 'none'
+            }}
           >
             <Send className="h-4 w-4" />
           </Button>

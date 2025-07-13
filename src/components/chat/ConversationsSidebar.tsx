@@ -98,7 +98,7 @@ export function ConversationsSidebar({ currentCharacter }: ConversationsSidebarP
                     {conversation.timestamp}
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground/80 truncate leading-relaxed">
+                <p className="text-[13px] text-muted-foreground/70 truncate leading-relaxed font-light">
                   {conversation.lastMessage}
                 </p>
               </div>
