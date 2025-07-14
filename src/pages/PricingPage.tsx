@@ -116,7 +116,7 @@ const PricingPage = () => {
 
       {/* Subscription Plans */}
       {activeTab === 'subscription' && (
-        <section className="py-12 px-4">
+        <section className="py-12 px-4 mb-24">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-3 gap-12">
               {pricingTiers.map((tier, index) => (
@@ -156,7 +156,7 @@ const PricingPage = () => {
 
       {/* Message Packs */}
       {activeTab === 'packs' && (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 mb-24">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold text-white text-center mb-16">
               Need More Messages?
