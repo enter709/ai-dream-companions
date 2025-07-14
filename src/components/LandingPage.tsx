@@ -1,7 +1,7 @@
 import { Header } from "./Header";
 import { HeroSection } from "./HeroSection";
 import { FeaturesSection } from "./FeaturesSection";
-
+import { MemoryComparisonSection } from "./MemoryComparisonSection";
 import { ComparisonSection } from "./ComparisonSection";
 import { ProgressionSection } from "./ProgressionSection";
 import { TestimonialsSection } from "./TestimonialsSection";
@@ -15,7 +15,7 @@ export function LandingPage() {
       <Header />
       <HeroSection />
       <FeaturesSection />
-      
+      <MemoryComparisonSection />
       <ComparisonSection />
       <ProgressionSection />
       <TestimonialsSection />
