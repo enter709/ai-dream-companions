@@ -72,9 +72,9 @@ const PricingPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="py-32 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">
             Choose Your Plan
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -84,34 +84,34 @@ const PricingPage = () => {
       </section>
 
       {/* Pricing Tiers */}
-      <section className="py-16 px-4">
+      <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12">
             {pricingTiers.map((tier, index) => (
-              <Card key={tier.name} className="relative bg-card border-border">
+              <Card key={tier.name} className="relative bg-card/50 border-border backdrop-blur-sm hover:bg-card/60 transition-colors h-full flex flex-col">
                 {tier.popular && (
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
                     Most Popular
                   </Badge>
                 )}
-                <CardHeader className="text-center pb-6">
-                  <CardTitle className="text-2xl font-bold text-white">{tier.name}</CardTitle>
-                  <div className="flex items-baseline justify-center gap-1">
+                <CardHeader className="text-center pb-8 flex-none">
+                  <CardTitle className="text-2xl font-bold text-white mb-4">{tier.name}</CardTitle>
+                  <div className="flex items-baseline justify-center gap-1 mb-4">
                     <span className="text-4xl font-bold text-white">{tier.price}</span>
                     <span className="text-gray-400">{tier.period}</span>
                   </div>
                   <CardDescription className="text-gray-300">{tier.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-3">
+                <CardContent className="flex flex-col flex-1">
+                  <ul className="space-y-4 flex-1 mb-8">
                     {tier.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300">{feature}</span>
+                        <span className="text-gray-300 text-sm leading-relaxed">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-base font-medium">
                     {tier.cta}
                   </Button>
                 </CardContent>
@@ -122,32 +122,32 @@ const PricingPage = () => {
       </section>
 
       {/* Message Packs Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">
+      <section className="py-20 px-4">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-white text-center mb-16">
             Need More Messages?
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {messagePacks.map((pack, index) => (
-              <Card key={index} className="bg-card border-border">
-                <CardHeader className="text-center">
+              <Card key={index} className="bg-card/30 border-border/50 backdrop-blur-sm">
+                <CardHeader className="text-center pb-4">
                   {pack.badge && (
-                    <Badge className="self-center mb-2 bg-green-600 text-white">
+                    <Badge className="self-center mb-3 bg-green-600 text-white text-xs">
                       {pack.badge}
                     </Badge>
                   )}
-                  <CardTitle className="text-xl font-bold text-white">{pack.messages}</CardTitle>
-                  <div className="text-3xl font-bold text-white">{pack.price}</div>
+                  <CardTitle className="text-lg font-bold text-white mb-2">{pack.messages}</CardTitle>
+                  <div className="text-2xl font-bold text-white">{pack.price}</div>
                 </CardHeader>
-                <CardContent>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                <CardContent className="pt-0">
+                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-10 text-sm">
                     Buy Now
                   </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
-          <p className="text-center text-gray-400 mt-8">
+          <p className="text-center text-gray-400 mt-12 text-sm">
             Message packs never expire and work with any plan
           </p>
         </div>
