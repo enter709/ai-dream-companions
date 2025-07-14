@@ -163,17 +163,17 @@ const PricingPage = () => {
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {messagePacks.map((pack, index) => (
-                <Card key={index} className="bg-card/30 border-border/50 backdrop-blur-sm">
-                  <CardHeader className="text-center pb-4">
+                <Card key={index} className="bg-card/30 border-border/50 backdrop-blur-sm h-full flex flex-col">
+                  <CardHeader className="text-center flex-1 flex flex-col justify-center py-8">
                     {pack.badge && (
-                      <Badge className="self-center mb-3 bg-green-600 text-white text-xs">
+                      <Badge className="self-center mb-4 bg-green-600 text-white text-xs">
                         {pack.badge}
                       </Badge>
                     )}
-                    <CardTitle className="text-lg font-bold text-white mb-2">{pack.messages}</CardTitle>
+                    <CardTitle className="text-lg font-bold text-white mb-3">{pack.messages}</CardTitle>
                     <div className="text-2xl font-bold text-white">{pack.price}</div>
                   </CardHeader>
-                  <CardContent className="pt-0">
+                  <CardContent className="pt-0 pb-6">
                     <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-10 text-sm">
                       Buy Now
                     </Button>
