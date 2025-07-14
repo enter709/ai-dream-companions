@@ -4,7 +4,7 @@ export function MemoryComparisonSection() {
   return (
     <section className="section-dark py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-center gap-16">
+        <div className="flex items-center justify-center gap-48">
           {/* Left Stats */}
           <div className="text-center flex-shrink-0">
             <div className="text-8xl font-extrabold text-white mb-2">
@@ -19,7 +19,7 @@ export function MemoryComparisonSection() {
           </div>
 
           {/* Phone Mockup */}
-          <div className="relative flex-shrink-0">
+          <div className="relative flex-shrink-0 -mt-16">
             <div className="flex gap-4">
               {/* Basic AI Phone */}
               <div className="relative">
@@ -80,14 +80,15 @@ export function MemoryComparisonSection() {
           </div>
 
           {/* Right Stats */}
-          <div className="text-center flex-shrink-0">
-            <div className="text-8xl font-extrabold text-primary mb-2">
+          <div className="text-center flex-shrink-0 relative">
+            <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-110 -z-10"></div>
+            <div className="text-8xl font-extrabold text-primary mb-2 relative z-10">
               INFINITE
             </div>
-            <div className="text-6xl font-bold text-primary mb-4">
+            <div className="text-6xl font-bold text-primary mb-4 relative z-10">
               MEMORY
             </div>
-            <div className="text-xs" style={{ color: '#666666' }}>
+            <div className="text-xs relative z-10" style={{ color: '#666666' }}>
               remembers every conversation
             </div>
           </div>
