@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import { useState } from "react";
 
 const PricingPage = () => {
+  const [activeTab, setActiveTab] = useState<'subscription' | 'packs'>('subscription');
+
   const pricingTiers = [
     {
       name: "Basic",
@@ -83,75 +86,107 @@ const PricingPage = () => {
         </div>
       </section>
 
-      {/* Pricing Tiers */}
-      <section className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12">
-            {pricingTiers.map((tier, index) => (
-              <Card key={tier.name} className="relative bg-card/50 border-border backdrop-blur-sm hover:bg-card/60 transition-colors h-full flex flex-col">
-                {tier.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
-                    Most Popular
-                  </Badge>
-                )}
-                <CardHeader className="text-center pb-8 flex-none">
-                  <CardTitle className="text-2xl font-bold text-white mb-4">{tier.name}</CardTitle>
-                  <div className="flex items-baseline justify-center gap-1 mb-4">
-                    <span className="text-4xl font-bold text-white">{tier.price}</span>
-                    <span className="text-gray-400">{tier.period}</span>
-                  </div>
-                  <CardDescription className="text-gray-300">{tier.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex flex-col flex-1">
-                  <ul className="space-y-4 flex-1 mb-8">
-                    {tier.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start gap-3">
-                        <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300 text-sm leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-base font-medium">
-                    {tier.cta}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+      {/* Toggle Tabs */}
+      <section className="py-12 px-4">
+        <div className="max-w-7xl mx-auto flex justify-center">
+          <div className="bg-muted/20 p-1 rounded-full backdrop-blur-sm border border-border/50">
+            <button
+              onClick={() => setActiveTab('subscription')}
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
+                activeTab === 'subscription'
+                  ? 'bg-primary text-primary-foreground shadow-lg'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Subscription Plans
+            </button>
+            <button
+              onClick={() => setActiveTab('packs')}
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
+                activeTab === 'packs'
+                  ? 'bg-primary text-primary-foreground shadow-lg'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Message Packs
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Message Packs Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-white text-center mb-16">
-            Need More Messages?
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {messagePacks.map((pack, index) => (
-              <Card key={index} className="bg-card/30 border-border/50 backdrop-blur-sm">
-                <CardHeader className="text-center pb-4">
-                  {pack.badge && (
-                    <Badge className="self-center mb-3 bg-green-600 text-white text-xs">
-                      {pack.badge}
+      {/* Subscription Plans */}
+      {activeTab === 'subscription' && (
+        <section className="py-12 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-12">
+              {pricingTiers.map((tier, index) => (
+                <Card key={tier.name} className="relative bg-card/50 border-border backdrop-blur-sm hover:bg-card/60 transition-colors h-full flex flex-col">
+                  {tier.popular && (
+                    <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
+                      Most Popular
                     </Badge>
                   )}
-                  <CardTitle className="text-lg font-bold text-white mb-2">{pack.messages}</CardTitle>
-                  <div className="text-2xl font-bold text-white">{pack.price}</div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-10 text-sm">
-                    Buy Now
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardHeader className="text-center pb-8 flex-none">
+                    <CardTitle className="text-2xl font-bold text-white mb-4">{tier.name}</CardTitle>
+                    <div className="flex items-baseline justify-center gap-1 mb-4">
+                      <span className="text-4xl font-bold text-white">{tier.price}</span>
+                      <span className="text-gray-400">{tier.period}</span>
+                    </div>
+                    <CardDescription className="text-gray-300">{tier.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex flex-col flex-1">
+                    <ul className="space-y-4 flex-1 mb-8">
+                      {tier.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start gap-3">
+                          <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-300 text-sm leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-base font-medium">
+                      {tier.cta}
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-          <p className="text-center text-gray-400 mt-12 text-sm">
-            Message packs never expire and work with any plan
-          </p>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* Message Packs */}
+      {activeTab === 'packs' && (
+        <section className="py-20 px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-white text-center mb-16">
+              Need More Messages?
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {messagePacks.map((pack, index) => (
+                <Card key={index} className="bg-card/30 border-border/50 backdrop-blur-sm">
+                  <CardHeader className="text-center pb-4">
+                    {pack.badge && (
+                      <Badge className="self-center mb-3 bg-green-600 text-white text-xs">
+                        {pack.badge}
+                      </Badge>
+                    )}
+                    <CardTitle className="text-lg font-bold text-white mb-2">{pack.messages}</CardTitle>
+                    <div className="text-2xl font-bold text-white">{pack.price}</div>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-10 text-sm">
+                      Buy Now
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <p className="text-center text-gray-400 mt-12 text-sm">
+              Message packs never expire and work with any plan
+            </p>
+          </div>
+        </section>
+      )}
 
       <Footer />
     </div>
