@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Heart, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,16 +12,16 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-2xl font-bold text-white tracking-tight">
+            <Link to="/" className="text-2xl font-bold text-white tracking-tight">
               DEVOTION
-            </span>
+            </Link>
           </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#characters" className="text-gray-300 hover:text-white transition-colors">Characters</a>
             <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
-            <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
+            <Link to="/pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</Link>
           </nav>
           
           {/* Desktop Buttons */}
@@ -48,7 +49,7 @@ export function Header() {
             <nav className="flex flex-col space-y-4">
               <a href="#characters" className="text-gray-300 hover:text-white transition-colors">Characters</a>
               <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
-              <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
+              <Link to="/pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</Link>
               <div className="flex flex-col space-y-3 pt-4 border-t border-border/20">
                 <Button variant="ghost" className="justify-start text-gray-300 hover:text-white">
                   Sign In
