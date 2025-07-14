@@ -147,6 +147,9 @@ const PricingPage = () => {
               </Card>
             ))}
           </div>
+          <p className="text-center text-gray-400 mt-8">
+            Message packs never expire and work with any plan
+          </p>
         </div>
       </section>
 
