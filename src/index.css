@@ -48,19 +48,7 @@
     --character-card-border: 0 0% 20%;
     --character-glow: 261 84% 47% / 0.3;
     --character-hover-glow: 261 84% 47% / 0.6;
-  }
-}
 
-/* Custom Animations */
-@keyframes opacity-pulse {
-  0%, 100% {
-    opacity: 0.9;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-    
     /* Platinum Accent - #E5E4E2 / RGB(229, 228, 226) */
     --platinum: 40 8% 89%;
     
@@ -191,6 +179,15 @@
   @keyframes pulse-glow {
     from { box-shadow: 0 0 20px hsl(var(--primary) / 0.4); }
     to { box-shadow: 0 0 40px hsl(var(--primary) / 0.8); }
+  }
+
+  @keyframes opacity-pulse {
+    0%, 100% {
+      opacity: 0.9;
+    }
+    50% {
+      opacity: 1;
+    }
   }
 
   /* Message Bubble Tails and Animations */
