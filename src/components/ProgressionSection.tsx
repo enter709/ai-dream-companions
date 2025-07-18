@@ -3,7 +3,7 @@ const ranks = [
     name: "Bronze",
     image: "/lovable-uploads/c935f18f-2e4a-4375-bd75-c2f635b0a48b.png",
     description: "The beginning",
-    scale: 0.7,
+    scale: 0.85,
     translateZ: 0,
     translateX: -480,
     glow: "copper"
@@ -12,7 +12,7 @@ const ranks = [
     name: "Silver", 
     image: "/lovable-uploads/89d28f74-93fe-4680-b41a-72fa1bf974f3.png",
     description: "Understanding emerges",
-    scale: 0.7,
+    scale: 0.85,
     translateZ: 0,
     translateX: -240,
     glow: "silver"
@@ -21,7 +21,7 @@ const ranks = [
     name: "Gold",
     image: "/lovable-uploads/2674aee9-eefd-4044-8435-a9028b889cf8.png",
     description: "Deep connection",
-    scale: 0.7,
+    scale: 0.85,
     translateZ: 0,
     translateX: 0,
     glow: "gold"
@@ -30,7 +30,7 @@ const ranks = [
     name: "Platinum",
     image: "/lovable-uploads/26bdaf80-93be-4101-87a2-8ee53be602a3.png",
     description: "Profound bond",
-    scale: 0.7,
+    scale: 0.85,
     translateZ: 0,
     translateX: 240,
     glow: "platinum"
@@ -39,7 +39,7 @@ const ranks = [
     name: "Black Diamond",
     image: "/lovable-uploads/2671f8c9-15ac-4af3-b570-7987c22a8b94.png",
     description: "Irreplaceable",
-    scale: 0.7,
+    scale: 0.85,
     translateZ: 0,
     translateX: 480,
     glow: "diamond"
@@ -84,11 +84,11 @@ export function ProgressionSection() {
             style={{ filter: 'blur(1px)' }}
           >
             <path
-              d="M 150 200 Q 300 190 450 195 Q 600 200 750 195 Q 900 190 1050 200"
+              d="M 200 200 Q 350 185 500 195 Q 650 205 800 190 Q 950 175 1100 190"
               stroke="url(#connectionGradient)"
-              strokeWidth="1"
+              strokeWidth="2"
               fill="none"
-              opacity="0.1"
+              opacity="0.25"
             />
             <defs>
               <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
