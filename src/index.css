@@ -247,7 +247,6 @@
   /* Removed hover scale effect - only rotation remains */
 
   .badge-inner {
-    animation: rotate-y 20s linear infinite;
     transform-style: preserve-3d;
     filter: drop-shadow(0 0 20px currentColor);
   }
