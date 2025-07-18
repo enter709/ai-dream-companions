@@ -32,53 +32,81 @@ export function ConnectionEvolutionSection() {
       className="relative min-h-screen overflow-hidden"
       style={{
         background: `
-          radial-gradient(circle at 30% 70%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
-          radial-gradient(circle at 70% 30%, rgba(91, 58, 237, 0.1) 0%, transparent 50%),
-          radial-gradient(ellipse at center, #1A0F2E 0%, #2D1B4E 40%, #000000 100%),
-          linear-gradient(180deg, #000000 0%, #0a0a0a 100%)
-        `
+          radial-gradient(ellipse at 30% 20%, #0A0A0F 0%, transparent 50%),
+          radial-gradient(ellipse at 70% 80%, #1A0F2E 0%, transparent 50%),
+          radial-gradient(circle at center, rgba(45, 27, 78, 0.3) 0%, transparent 70%),
+          radial-gradient(ellipse at 20% 90%, #0F0A15 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 10%, #2D1B4E 0%, transparent 50%),
+          linear-gradient(135deg, #0A0A0F 0%, #1A0F2E 25%, #2D1B4E 50%, #0F0A15 75%, #000000 100%)
+        `,
+        transformStyle: 'preserve-3d',
+        perspective: '1200px'
       }}
     >
       {/* Film grain overlay */}
       <div 
-        className="absolute inset-0 z-10 pointer-events-none opacity-5"
+        className="absolute inset-0 z-20 pointer-events-none opacity-[0.04]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E")`
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.8'/%3E%3C/svg%3E")`,
+          mixBlendMode: 'multiply'
         }}
       />
 
-      {/* Vignette effect */}
+      {/* Enhanced vignette effect */}
       <div 
-        className="absolute inset-0 z-10 pointer-events-none"
+        className="absolute inset-0 z-15 pointer-events-none"
         style={{
-          background: `radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.1) 100%)`
+          background: `radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.4) 100%)`
         }}
       />
 
-      {/* Atmospheric haze */}
+      {/* Fog layer with animation */}
       <div 
-        className="absolute inset-0 opacity-10 pointer-events-none"
+        className="absolute inset-0 opacity-15 pointer-events-none animate-fog-drift"
         style={{
-          background: `radial-gradient(ellipse at center, transparent 0%, rgba(124, 58, 237, 0.3) 70%, transparent 100%)`
+          background: `linear-gradient(90deg, transparent 0%, rgba(233, 213, 255, 0.3) 30%, rgba(233, 213, 255, 0.5) 50%, rgba(233, 213, 255, 0.3) 70%, transparent 100%)`,
+          filter: 'blur(40px)',
+          transform: 'translateY(-20%)'
         }}
       />
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-purple-400 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${4 + Math.random() * 2}s`,
-              opacity: 0.2 + Math.random() * 0.3,
-              transform: `translateY(${Math.random() * 100}px)`,
-            }}
-          />
-        ))}
+      {/* Purple center glow */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-5"
+        style={{
+          background: `radial-gradient(ellipse 600px 400px at center, rgba(124, 58, 237, 0.6) 0%, rgba(91, 58, 237, 0.3) 40%, transparent 70%)`,
+          filter: 'blur(120px)',
+          mixBlendMode: 'screen'
+        }}
+      />
+
+      {/* Enhanced floating particles */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        {Array.from({ length: 65 }).map((_, i) => {
+          const size = 1 + Math.random() * 3;
+          const colors = ['#7C3AED', '#9D4EDD', '#E9D5FF', '#C084FC'];
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          const zLayer = Math.random() > 0.5 ? 'z-5' : 'z-15';
+          
+          return (
+            <div
+              key={i}
+              className={`absolute rounded-full ${zLayer} animate-particle-float`}
+              style={{
+                width: `${size}px`,
+                height: `${size}px`,
+                backgroundColor: color,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 20}s`,
+                animationDuration: `${15 + Math.random() * 10}s`,
+                opacity: 0.3 + Math.random() * 0.4,
+                filter: `blur(${size * 0.5}px)`,
+                boxShadow: `0 0 ${size * 2}px ${color}`
+              }}
+            />
+          );
+        })}
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 py-20">
@@ -98,12 +126,15 @@ export function ConnectionEvolutionSection() {
             style={{
               transform: `
                 translateY(-50%) 
-                translateX(${scrollProgress * -50}px) 
-                rotateY(${15 + scrollProgress * -5}deg) 
-                rotateX(${5 + scrollProgress * 2}deg)
+                translateX(${-30 + scrollProgress * -50}px) 
+                rotateY(-20deg) 
+                rotateX(8deg)
+                rotateZ(-3deg)
+                scale(0.95)
               `,
               filter: `brightness(${0.7 + scrollProgress * 0.1})`,
-              animation: 'float 6s ease-in-out infinite'
+              animation: 'float 6s ease-in-out infinite',
+              transformStyle: 'preserve-3d'
             }}
           >
             {/* iPhone Mockup - Basic AI */}
@@ -112,25 +143,37 @@ export function ConnectionEvolutionSection() {
                 className="w-64 h-[500px] bg-black rounded-[2.5rem] p-2 border-4 border-gray-700 shadow-2xl relative overflow-hidden"
                 style={{
                   boxShadow: `
-                    0 0 60px rgba(200, 200, 200, 0.05),
-                    0 40px 80px rgba(45, 27, 78, 0.3),
+                    0 40px 80px rgba(0, 0, 0, 0.4),
+                    0 0 40px rgba(74, 85, 104, 0.2),
+                    0 0 0 2px rgba(74, 85, 104, 0.2),
                     inset 0 1px 0 rgba(255, 255, 255, 0.1)
                   `
                 }}
               >
-                {/* Subtle rim light */}
+                {/* Rim light */}
                 <div 
                   className="absolute inset-0 rounded-[2.5rem] pointer-events-none"
                   style={{
-                    background: `linear-gradient(135deg, rgba(200, 200, 200, 0.05) 0%, transparent 50%, rgba(200, 200, 200, 0.02) 100%)`
+                    background: `linear-gradient(135deg, rgba(74, 85, 104, 0.2) 0%, transparent 50%, rgba(74, 85, 104, 0.2) 100%)`,
+                    border: '2px solid rgba(74, 85, 104, 0.2)'
                   }}
                 />
 
-                {/* Screen reflection */}
+                {/* Outer glow */}
+                <div 
+                  className="absolute -inset-5 rounded-[3rem] pointer-events-none"
+                  style={{
+                    background: `radial-gradient(ellipse at center, rgba(74, 85, 104, 0.1) 0%, transparent 70%)`,
+                    filter: 'blur(20px)'
+                  }}
+                />
+
+                {/* Screen gloss effect */}
                 <div 
                   className="absolute top-2 left-2 right-2 h-32 rounded-t-[2rem] pointer-events-none opacity-10"
                   style={{
-                    background: `linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%)`
+                    background: `linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%)`,
+                    mixBlendMode: 'overlay'
                   }}
                 />
 
@@ -182,13 +225,15 @@ export function ConnectionEvolutionSection() {
             className="absolute right-0 top-1/2 transform -translate-y-1/2 transition-all duration-1000 ease-out hover:scale-105"
             style={{
               transform: `
-                translateY(-50%) 
-                translateX(${scrollProgress * 50}px) 
-                rotateY(${-15 + scrollProgress * 5}deg) 
-                rotateX(${5 + scrollProgress * 2}deg)
-                scale(1.1)
+                translateY(calc(-50% + 10px)) 
+                translateX(${20 + scrollProgress * 50}px) 
+                rotateY(18deg) 
+                rotateX(-10deg)
+                rotateZ(2deg)
+                scale(1.05)
               `,
-              animation: 'float 6s ease-in-out infinite -3s'
+              animation: 'float 6s ease-in-out infinite -3s',
+              transformStyle: 'preserve-3d'
             }}
           >
             {/* iPhone Mockup - Adaptive AI */}
@@ -197,9 +242,9 @@ export function ConnectionEvolutionSection() {
                 className="w-64 h-[500px] bg-black rounded-[2.5rem] p-2 border-4 border-purple-600 shadow-2xl relative overflow-hidden"
                 style={{
                   boxShadow: `
+                    0 50px 100px rgba(124, 58, 237, 0.2),
                     0 0 100px rgba(124, 58, 237, 0.8),
                     0 0 200px rgba(124, 58, 237, 0.4),
-                    0 40px 80px rgba(45, 27, 78, 0.6),
                     inset 0 0 50px rgba(124, 58, 237, 0.1),
                     inset 0 1px 0 rgba(124, 58, 237, 0.3)
                   `,
@@ -210,25 +255,35 @@ export function ConnectionEvolutionSection() {
                 <div 
                   className="absolute inset-0 rounded-[2.5rem] pointer-events-none"
                   style={{
-                    background: `linear-gradient(135deg, rgba(124, 58, 237, 0.3) 0%, transparent 40%, rgba(124, 58, 237, 0.2) 100%)`,
-                    filter: 'blur(1px)'
+                    background: `linear-gradient(135deg, rgba(157, 78, 221, 0.8) 0%, transparent 40%, rgba(157, 78, 221, 0.8) 100%)`,
+                    border: '4px solid rgba(157, 78, 221, 0.8)'
                   }}
                 />
 
-                {/* Extended purple glow */}
+                {/* Extended purple glow - 20-30px beyond device */}
                 <div 
-                  className="absolute -inset-8 rounded-[3rem] pointer-events-none"
+                  className="absolute -inset-8 rounded-[4rem] pointer-events-none"
                   style={{
-                    background: `radial-gradient(ellipse at center, rgba(124, 58, 237, 0.2) 0%, rgba(124, 58, 237, 0.1) 50%, transparent 70%)`,
-                    filter: 'blur(8px)'
+                    background: `radial-gradient(ellipse at center, rgba(124, 58, 237, 0.4) 0%, rgba(124, 58, 237, 0.2) 50%, transparent 70%)`,
+                    filter: 'blur(20px)'
                   }}
                 />
 
-                {/* Screen reflection */}
+                {/* Extended outer glow */}
+                <div 
+                  className="absolute -inset-12 rounded-[5rem] pointer-events-none"
+                  style={{
+                    background: `radial-gradient(ellipse at center, rgba(124, 58, 237, 0.2) 0%, rgba(124, 58, 237, 0.1) 40%, transparent 70%)`,
+                    filter: 'blur(30px)'
+                  }}
+                />
+
+                {/* Screen gloss effect */}
                 <div 
                   className="absolute top-2 left-2 right-2 h-32 rounded-t-[2rem] pointer-events-none opacity-10"
                   style={{
-                    background: `linear-gradient(135deg, rgba(124, 58, 237, 0.6) 0%, transparent 100%)`
+                    background: `linear-gradient(135deg, rgba(124, 58, 237, 0.6) 0%, transparent 100%)`,
+                    mixBlendMode: 'overlay'
                   }}
                 />
 
@@ -294,7 +349,7 @@ export function ConnectionEvolutionSection() {
 
           {/* Center Text */}
           <div 
-            className="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-1000 ease-out"
+            className="absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-1000 ease-out z-15"
             style={{
               opacity: Math.max(0, (scrollProgress - 0.3) * 2),
               transform: `translateY(${(1 - scrollProgress) * 50}px)`
@@ -302,16 +357,16 @@ export function ConnectionEvolutionSection() {
           >
             <div className="text-center max-w-md">
               <p 
-                className="text-3xl font-bold leading-relaxed"
+                className="text-3xl font-bold leading-relaxed animate-text-pulse"
                 style={{ 
                   color: 'white',
                   textShadow: `
+                    0 0 20px rgba(124, 58, 237, 0.3),
                     0 0 40px rgba(124, 58, 237, 0.8),
                     0 0 80px rgba(124, 58, 237, 0.4)
                   `,
                   lineHeight: '1.8',
-                  letterSpacing: '0.05em',
-                  animation: 'textPulse 4s ease-in-out infinite'
+                  letterSpacing: '0.05em'
                 }}
               >
                 One forgets everything.
@@ -321,12 +376,13 @@ export function ConnectionEvolutionSection() {
             </div>
           </div>
 
-          {/* Purple light bleed between phones */}
+          {/* Enhanced purple light bleed with fog effect */}
           <div 
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 pointer-events-none z-5"
             style={{
-              background: `radial-gradient(ellipse 200px 800px at center, rgba(124, 58, 237, ${0.1 + scrollProgress * 0.2}) 0%, transparent 70%)`,
-              filter: 'blur(2px)'
+              background: `radial-gradient(ellipse 400px 600px at center, rgba(124, 58, 237, ${0.6 + scrollProgress * 0.3}) 0%, rgba(91, 58, 237, ${0.3 + scrollProgress * 0.2}) 40%, transparent 70%)`,
+              filter: 'blur(120px)',
+              mixBlendMode: 'screen'
             }}
           />
         </div>
