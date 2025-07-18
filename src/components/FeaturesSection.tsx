@@ -35,7 +35,7 @@ export function FeaturesSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-32">
-          <h2 className="text-7xl sm:text-8xl lg:text-9xl font-black text-white mb-8 tracking-[0.04em]">
+          <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black text-white mb-8 tracking-[0.04em]">
             Built Different
           </h2>
           <p className="text-xl sm:text-2xl font-light text-[#999999] max-w-2xl mx-auto leading-[1.8]">
