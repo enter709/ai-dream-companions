@@ -3,18 +3,18 @@ const ranks = [
     name: "Bronze",
     image: "/lovable-uploads/c935f18f-2e4a-4375-bd75-c2f635b0a48b.png",
     description: "The beginning",
-    scale: 0.7,
-    translateZ: -400,
-    translateX: -300,
+    scale: 1.0,
+    translateZ: 0,
+    translateX: -320,
     glow: "copper"
   },
   {
     name: "Silver", 
     image: "/lovable-uploads/89d28f74-93fe-4680-b41a-72fa1bf974f3.png",
     description: "Understanding emerges",
-    scale: 0.8,
-    translateZ: -200,
-    translateX: -150,
+    scale: 1.0,
+    translateZ: 0,
+    translateX: -160,
     glow: "silver"
   },
   {
@@ -30,18 +30,18 @@ const ranks = [
     name: "Platinum",
     image: "/lovable-uploads/26bdaf80-93be-4101-87a2-8ee53be602a3.png",
     description: "Profound bond",
-    scale: 1.2,
-    translateZ: 200,
-    translateX: 150,
+    scale: 1.0,
+    translateZ: 0,
+    translateX: 160,
     glow: "platinum"
   },
   {
     name: "Black Diamond",
     image: "/lovable-uploads/2671f8c9-15ac-4af3-b570-7987c22a8b94.png",
     description: "Irreplaceable",
-    scale: 1.5,
-    translateZ: 400,
-    translateX: 300,
+    scale: 1.0,
+    translateZ: 0,
+    translateX: 320,
     glow: "diamond"
   }
 ];
@@ -77,7 +77,7 @@ export function ProgressionSection() {
         </div>
         
         {/* 3D Badge Container */}
-        <div className="spatial-container relative h-96 flex items-center justify-center">
+        <div className="spatial-container relative h-96 flex items-center justify-center overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scroll-smooth">
           {/* Connecting light path */}
           <svg 
             className="absolute inset-0 w-full h-full pointer-events-none"
@@ -105,7 +105,7 @@ export function ProgressionSection() {
           {ranks.map((rank, index) => (
             <div
               key={rank.name}
-              className={`badge-container ${rank.glow}-glow`}
+              className={`badge-container ${rank.glow}-glow snap-center flex-shrink-0`}
               style={{
                 transform: `
                   translateX(${rank.translateX}px) 
