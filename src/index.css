@@ -228,10 +228,123 @@
     }
   }
 
-  /* Progression System */
-  .rank-bronze { @apply text-orange-400 drop-shadow-[0_0_10px_rgba(251,146,60,0.5)]; }
-  .rank-silver { @apply text-gray-300 drop-shadow-[0_0_10px_rgba(209,213,219,0.5)]; }
-  .rank-gold { @apply text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]; }
-  .rank-platinum { @apply text-cyan-300 drop-shadow-[0_0_10px_rgba(165,243,252,0.5)]; }
-  .rank-diamond { @apply text-gradient-purple drop-shadow-[0_0_10px_hsl(var(--primary)/0.7)]; }
+  /* Spatial 3D Progression System */
+  .spatial-container {
+    perspective: 1500px;
+    perspective-origin: center center;
+  }
+
+  .badge-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  .badge-container:hover {
+    transform: scale(1.1) !important;
+  }
+
+  .badge-inner {
+    animation: rotate-y 20s linear infinite;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 0 20px currentColor);
+  }
+
+  .badge-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: brightness(1.2) contrast(1.1);
+  }
+
+  .badge-text {
+    margin-top: 40px;
+    text-align: center;
+    transform: translateZ(0);
+  }
+
+  .badge-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .badge-description {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  /* Individual Badge Glows */
+  .copper-glow {
+    color: #CD7F32;
+  }
+  .copper-glow .badge-inner {
+    filter: drop-shadow(0 0 30px rgba(205, 127, 50, 0.3));
+  }
+  .copper-glow:hover .badge-inner {
+    filter: drop-shadow(0 0 40px rgba(205, 127, 50, 0.5));
+  }
+
+  .silver-glow {
+    color: #C0C0C0;
+  }
+  .silver-glow .badge-inner {
+    filter: drop-shadow(0 0 30px rgba(192, 192, 192, 0.4));
+  }
+  .silver-glow:hover .badge-inner {
+    filter: drop-shadow(0 0 40px rgba(192, 192, 192, 0.6));
+  }
+
+  .gold-glow {
+    color: #FFD700;
+  }
+  .gold-glow .badge-inner {
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
+  }
+  .gold-glow:hover .badge-inner {
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.7));
+  }
+
+  .platinum-glow {
+    color: #E5E4E2;
+  }
+  .platinum-glow .badge-inner {
+    filter: drop-shadow(0 0 30px rgba(229, 228, 226, 0.6));
+  }
+  .platinum-glow:hover .badge-inner {
+    filter: drop-shadow(0 0 40px rgba(229, 228, 226, 0.8));
+  }
+
+  .diamond-glow {
+    color: #7C3AED;
+  }
+  .diamond-glow .badge-inner {
+    filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.8));
+  }
+  .diamond-glow:hover .badge-inner {
+    filter: drop-shadow(0 0 50px rgba(124, 58, 237, 1));
+  }
+
+  /* Animations */
+  @keyframes rotate-y {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+
+  /* Radial gradient utility */
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
 }

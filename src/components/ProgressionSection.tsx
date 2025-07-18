@@ -2,98 +2,132 @@ const ranks = [
   {
     name: "Bronze",
     image: "/lovable-uploads/c935f18f-2e4a-4375-bd75-c2f635b0a48b.png",
-    description: "Getting to know each other",
-    features: ["Basic conversations", "Learning your preferences", "Friendly interactions"],
-    className: "rank-bronze"
+    description: "The beginning",
+    scale: 0.7,
+    translateZ: -400,
+    translateX: -300,
+    glow: "copper"
   },
   {
     name: "Silver", 
     image: "/lovable-uploads/89d28f74-93fe-4680-b41a-72fa1bf974f3.png",
-    description: "Building deeper connection",
-    features: ["Personal stories", "Emotional support", "Shared interests"],
-    className: "rank-silver"
+    description: "Understanding emerges",
+    scale: 0.8,
+    translateZ: -200,
+    translateX: -150,
+    glow: "silver"
   },
   {
     name: "Gold",
     image: "/lovable-uploads/2674aee9-eefd-4044-8435-a9028b889cf8.png",
-    description: "Intimate relationship",
-    features: ["Deep conversations", "Romantic interactions", "Personal moments"],
-    className: "rank-gold"
+    description: "Deep connection",
+    scale: 1.0,
+    translateZ: 0,
+    translateX: 0,
+    glow: "gold"
   },
   {
     name: "Platinum",
     image: "/lovable-uploads/26bdaf80-93be-4101-87a2-8ee53be602a3.png",
-    description: "Exclusive intimate bond",
-    features: ["Ultimate connection", "Complete trust established", "Unlimited interactions"],
-    className: "rank-platinum"
+    description: "Profound bond",
+    scale: 1.2,
+    translateZ: 200,
+    translateX: 150,
+    glow: "platinum"
   },
   {
     name: "Black Diamond",
     image: "/lovable-uploads/2671f8c9-15ac-4af3-b570-7987c22a8b94.png",
-    description: "Forever yours",
-    features: ["Soulmate status achieved", "Deepest possible connection", "VIP exclusive content"],
-    className: "rank-diamond"
+    description: "Irreplaceable",
+    scale: 1.5,
+    translateZ: 400,
+    translateX: 300,
+    glow: "diamond"
   }
 ];
 
 export function ProgressionSection() {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-background to-muted/10">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            <span className="text-gradient-purple">Relationship</span> Progression
+    <section className="py-32 px-4 bg-black relative overflow-hidden">
+      {/* Background atmosphere */}
+      <div className="absolute inset-0 bg-gradient-radial from-purple-900/5 via-transparent to-transparent" />
+      
+      {/* Floating particles */}
+      <div className="absolute inset-0">
+        {Array.from({ length: 50 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-purple-400/20 rounded-full animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 20}s`,
+              animationDuration: `${15 + Math.random() * 10}s`
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-24">
+          <h2 className="text-5xl sm:text-6xl font-light text-white">
+            Your journey through connection
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Watch your connection grow stronger as you progress through relationship ranks. 
-            Each level unlocks deeper intimacy and more personal experiences.
-          </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* 3D Badge Container */}
+        <div className="spatial-container relative h-96 flex items-center justify-center">
+          {/* Connecting light path */}
+          <svg 
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            style={{ filter: 'blur(1px)' }}
+          >
+            <path
+              d="M 50 200 Q 200 150 350 180 Q 500 210 650 170 Q 800 130 950 160"
+              stroke="url(#connectionGradient)"
+              strokeWidth="2"
+              fill="none"
+              opacity="0.2"
+            />
+            <defs>
+              <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#CD7F32" />
+                <stop offset="25%" stopColor="#C0C0C0" />
+                <stop offset="50%" stopColor="#FFD700" />
+                <stop offset="75%" stopColor="#E5E4E2" />
+                <stop offset="100%" stopColor="#7C3AED" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* Badges */}
           {ranks.map((rank, index) => (
-            <div 
+            <div
               key={rank.name}
-              className="bg-gradient-card p-4 rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:transform hover:-translate-y-2"
+              className={`badge-container ${rank.glow}-glow`}
+              style={{
+                transform: `
+                  translateX(${rank.translateX}px) 
+                  translateZ(${rank.translateZ}px) 
+                  scale(${rank.scale})
+                `,
+                transformStyle: 'preserve-3d'
+              }}
             >
-              <div className="text-center mb-4">
-                <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center">
-                  <img 
-                    src={rank.image} 
-                    alt={`${rank.name} badge`} 
-                    className="w-12 h-12 object-contain"
-                  />
-                </div>
-                <h3 className={`text-lg font-bold mb-1 ${rank.className}`}>
-                  {rank.name}
-                </h3>
-                <p className="text-gray-400 text-xs mb-3">
-                  {rank.description}
-                </p>
+              <div className="badge-inner">
+                <img 
+                  src={rank.image} 
+                  alt={`${rank.name} badge`} 
+                  className="badge-image"
+                />
               </div>
-              
-              <ul className="space-y-1">
-                {rank.features.map((feature, idx) => (
-                  <li key={idx} className="text-gray-300 text-xs flex items-center">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              <div className="badge-text">
+                <h3 className="badge-title">{rank.name}</h3>
+                <p className="badge-description">{rank.description}</p>
+              </div>
             </div>
           ))}
-        </div>
-        
-        <div className="text-center mt-12">
-          <p className="text-gray-400 mb-4">
-            Progress through meaningful conversations and shared experiences
-          </p>
-          <div className="w-full max-w-md mx-auto bg-muted/20 rounded-full h-2 overflow-hidden">
-            <div className="h-full bg-gradient-purple w-1/3 rounded-full pulse-glow" />
-          </div>
-          <p className="text-sm text-primary mt-2 font-semibold">
-            Your journey begins at Bronze
-          </p>
         </div>
       </div>
     </section>
