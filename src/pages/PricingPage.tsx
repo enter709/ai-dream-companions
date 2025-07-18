@@ -11,49 +11,54 @@ const PricingPage = () => {
 
   const pricingTiers = [
     {
-      name: "Basic",
-      price: "$14.99",
+      name: "Starter",
+      price: "$14",
+      decimal: ".99",
       period: "/month",
-      description: "Perfect for getting started",
+      description: "Dip your toes in",
       features: [
-        "1,200 messages per month",
-        "All 4 AI girlfriends",
-        "Full progression system (Bronze to Black Diamond)",
-        "Image unlocks with rank progression",
-        "24/7 availability"
+        { number: "1,200", desc: "messages monthly" },
+        { number: "All 4", desc: "girlfriends included" },
+        { number: "Bronze to Diamond", desc: "full progression" }
       ],
-      cta: "Start Free Trial",
-      popular: false
+      cta: "Start Free",
+      variant: "ghost",
+      popular: false,
+      bg: "bg-[#1A1A1A]"
     },
     {
-      name: "Plus",
-      price: "$24.99",
+      name: "Popular",
+      price: "$24",
+      decimal: ".99",
       period: "/month",
-      description: "Our most popular plan",
+      description: "Where most find love",
       features: [
-        "2,500 messages per month",
-        "Everything in Basic",
-        "2x faster image unlocks",
-        "Priority response times",
-        "Weekend bonus messages"
+        { number: "2,500", desc: "messages monthly" },
+        { number: "2x faster", desc: "image unlocks" },
+        { number: "Priority", desc: "response times" }
       ],
       cta: "Start Free Trial",
-      popular: true
+      variant: "primary",
+      popular: true,
+      bg: "bg-gradient-to-br from-purple-900/20 to-purple-800/20",
+      social: "Chosen by 73% of members"
     },
     {
-      name: "Max",
-      price: "$44.99",
+      name: "Ultimate",
+      price: "$44",
+      decimal: ".99",
       period: "/month",
-      description: "For the ultimate experience",
+      description: "Become irreplaceable",
       features: [
-        "6,000 messages per month",
-        "Everything in Plus",
-        "Instant image unlocks at each rank",
-        "Early access to new features",
-        "Premium characters (coming soon)"
+        { number: "6,000", desc: "messages monthly" },
+        { number: "Instant", desc: "image unlocks" },
+        { number: "Early access", desc: "new features" }
       ],
-      cta: "Start Free Trial",
-      popular: false
+      cta: "Go All In",
+      variant: "premium",
+      popular: false,
+      bg: "bg-black border border-purple-500/50",
+      social: "For the devoted few"
     }
   ];
 
@@ -75,8 +80,12 @@ const PricingPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-32 px-4">
-        <div className="max-w-6xl mx-auto text-center">
+      <section className="py-32 px-4 relative overflow-hidden">
+        {/* Background gradient mesh */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-black to-purple-800/5"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),transparent_50%)]"></div>
+        
+        <div className="max-w-6xl mx-auto text-center relative">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">
             Choose Your Plan
           </h1>
@@ -116,38 +125,86 @@ const PricingPage = () => {
 
       {/* Subscription Plans */}
       {activeTab === 'subscription' && (
-        <section className="py-12 px-4 mb-24">
+        <section className="py-12 px-4 mb-24 relative">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-12">
+            <div className="grid md:grid-cols-3 gap-20 items-end">
               {pricingTiers.map((tier, index) => (
-                <Card key={tier.name} className="relative bg-card/50 border-border backdrop-blur-sm hover:bg-card/60 transition-colors h-full flex flex-col">
+                <div 
+                  key={tier.name} 
+                  className={`relative group transition-all duration-300 hover:-translate-y-1 ${
+                    tier.popular ? 'md:-translate-y-5 md:scale-105' : ''
+                  }`}
+                >
+                  {/* Premium glow for Plus plan */}
                   {tier.popular && (
-                    <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
-                      Most Popular
-                    </Badge>
+                    <div className="absolute inset-0 bg-purple-500/20 rounded-2xl blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   )}
-                  <CardHeader className="text-center pb-8 flex-none">
-                    <CardTitle className="text-2xl font-bold text-white mb-4">{tier.name}</CardTitle>
-                    <div className="flex items-baseline justify-center gap-1 mb-4">
-                      <span className="text-4xl font-bold text-white">{tier.price}</span>
-                      <span className="text-gray-400">{tier.period}</span>
-                    </div>
-                    <CardDescription className="text-gray-300">{tier.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex flex-col flex-1">
-                    <ul className="space-y-4 flex-1 mb-8">
-                      {tier.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start gap-3">
-                          <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-300 text-sm leading-relaxed">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-12 text-base font-medium">
-                      {tier.cta}
-                    </Button>
-                  </CardContent>
-                </Card>
+                  
+                  <Card className={`relative ${tier.bg} backdrop-blur-sm border-none shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 h-full flex flex-col overflow-hidden`}>
+                    {tier.popular && (
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <Badge className="bg-purple-600 text-white text-xs tracking-wider uppercase">
+                          RECOMMENDED
+                        </Badge>
+                      </div>
+                    )}
+                    
+                    <CardHeader className="text-center pb-8 flex-none relative">
+                      {/* Plan name with different weights */}
+                      <CardTitle className={`text-4xl mb-6 text-white tracking-wide ${
+                        tier.name === 'Starter' ? 'font-normal' : 
+                        tier.name === 'Popular' ? 'font-bold' : 'font-black'
+                      }`}>
+                        {tier.name}
+                      </CardTitle>
+                      
+                      {/* Massive price display */}
+                      <div className="mb-6">
+                        <div className="flex items-baseline justify-center gap-1">
+                          <span className="text-6xl md:text-7xl font-bold text-white">{tier.price}</span>
+                          <span className="text-2xl text-gray-400 font-normal">{tier.decimal}</span>
+                        </div>
+                        <div className="text-gray-400 text-sm mt-1">{tier.period}</div>
+                      </div>
+                      
+                      {/* Powerful description */}
+                      <CardDescription className="text-gray-300 text-lg font-medium">
+                        {tier.description}
+                      </CardDescription>
+                      
+                      {/* Social proof */}
+                      {tier.social && (
+                        <p className="text-purple-300 text-sm mt-4 font-medium">{tier.social}</p>
+                      )}
+                    </CardHeader>
+                    
+                    <CardContent className="flex flex-col flex-1 px-8">
+                      {/* Feature presentation without checkmarks */}
+                      <div className="space-y-6 flex-1 mb-8">
+                        {tier.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="text-center">
+                            <div className="text-2xl font-bold text-white mb-1">{feature.number}</div>
+                            <div className="text-gray-300 text-sm leading-relaxed">{feature.desc}</div>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* CTA differentiation */}
+                      <Button 
+                        className={`w-full h-14 text-base font-semibold transition-all duration-300 ${
+                          tier.variant === 'ghost' 
+                            ? 'bg-transparent border-2 border-gray-600 text-white hover:bg-white hover:text-black' 
+                            : tier.variant === 'primary'
+                            ? 'bg-purple-600 hover:bg-purple-500 text-white shadow-lg hover:shadow-purple-500/30'
+                            : 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white shadow-lg hover:shadow-purple-500/40'
+                        }`}
+                      >
+                        {tier.cta}
+                        {tier.popular && <span className="ml-2 text-xs opacity-75">• Most Popular</span>}
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
           </div>
