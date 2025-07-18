@@ -72,7 +72,10 @@ export function ProgressionSection() {
         {/* Section Header */}
         <div className="text-center mb-24">
           <h2 className="progression-headline">
-            She evolves with you
+            <span className="font-light">She</span>{" "}
+            <span className="font-black text-purple-100">evolves</span>{" "}
+            <span className="font-light">with</span>{" "}
+            <span className="font-bold">you</span>.
           </h2>
         </div>
         
