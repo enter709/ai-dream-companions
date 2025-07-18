@@ -38,7 +38,7 @@ export function FAQSection() {
   const rightColumnFaqs = faqs.filter((_, index) => index % 2 === 1);
 
   return (
-    <section className="bg-black pt-36 pb-36 px-4">
+    <section className="bg-black pt-36 pb-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Gradient Headline */}
         <div className="text-center mb-40">
