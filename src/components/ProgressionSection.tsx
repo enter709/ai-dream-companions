@@ -3,25 +3,25 @@ const ranks = [
     name: "Bronze",
     image: "/lovable-uploads/c935f18f-2e4a-4375-bd75-c2f635b0a48b.png",
     description: "The beginning",
-    scale: 1.0,
+    scale: 0.7,
     translateZ: 0,
-    translateX: -320,
+    translateX: -480,
     glow: "copper"
   },
   {
     name: "Silver", 
     image: "/lovable-uploads/89d28f74-93fe-4680-b41a-72fa1bf974f3.png",
     description: "Understanding emerges",
-    scale: 1.0,
+    scale: 0.7,
     translateZ: 0,
-    translateX: -160,
+    translateX: -240,
     glow: "silver"
   },
   {
     name: "Gold",
     image: "/lovable-uploads/2674aee9-eefd-4044-8435-a9028b889cf8.png",
     description: "Deep connection",
-    scale: 1.0,
+    scale: 0.7,
     translateZ: 0,
     translateX: 0,
     glow: "gold"
@@ -30,18 +30,18 @@ const ranks = [
     name: "Platinum",
     image: "/lovable-uploads/26bdaf80-93be-4101-87a2-8ee53be602a3.png",
     description: "Profound bond",
-    scale: 1.0,
+    scale: 0.7,
     translateZ: 0,
-    translateX: 160,
+    translateX: 240,
     glow: "platinum"
   },
   {
     name: "Black Diamond",
     image: "/lovable-uploads/2671f8c9-15ac-4af3-b570-7987c22a8b94.png",
     description: "Irreplaceable",
-    scale: 1.0,
+    scale: 0.7,
     translateZ: 0,
-    translateX: 320,
+    translateX: 480,
     glow: "diamond"
   }
 ];
@@ -77,18 +77,18 @@ export function ProgressionSection() {
         </div>
         
         {/* 3D Badge Container */}
-        <div className="spatial-container relative h-96 flex items-center justify-center overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scroll-smooth">
+        <div className="spatial-container relative h-96 flex items-center justify-center overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scroll-smooth px-24 md:px-0">
           {/* Connecting light path */}
           <svg 
             className="absolute inset-0 w-full h-full pointer-events-none"
             style={{ filter: 'blur(1px)' }}
           >
             <path
-              d="M 50 200 Q 200 150 350 180 Q 500 210 650 170 Q 800 130 950 160"
+              d="M 150 200 Q 300 190 450 195 Q 600 200 750 195 Q 900 190 1050 200"
               stroke="url(#connectionGradient)"
-              strokeWidth="2"
+              strokeWidth="1"
               fill="none"
-              opacity="0.2"
+              opacity="0.1"
             />
             <defs>
               <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">

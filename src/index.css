@@ -255,30 +255,31 @@
   }
 
   .badge-image {
-    width: 80px;
-    height: 80px;
+    width: 56px;
+    height: 56px;
     object-fit: contain;
     filter: brightness(1.2) contrast(1.1);
   }
 
   .badge-text {
-    margin-top: 40px;
+    margin-top: 24px;
     text-align: center;
     transform: translateZ(0);
+    min-width: 100px;
   }
 
   .badge-title {
-    font-size: 1.5rem;
-    font-weight: 300;
+    font-size: 0.875rem;
+    font-weight: 500;
     color: white;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     letter-spacing: 0.02em;
   }
 
   .badge-description {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.7);
     margin: 0;
   }
 
