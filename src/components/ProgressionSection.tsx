@@ -71,8 +71,8 @@ export function ProgressionSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-24">
-          <h2 className="text-5xl sm:text-6xl font-light text-white">
-            Your journey through connection
+          <h2 className="progression-headline">
+            She evolves with you
           </h2>
         </div>
         
@@ -123,7 +123,7 @@ export function ProgressionSection() {
                 />
               </div>
               <div className="badge-text">
-                <h3 className="badge-title">{rank.name}</h3>
+                <h3 className="badge-title">{rank.name.toUpperCase()}</h3>
                 <p className="badge-description">{rank.description}</p>
               </div>
             </div>

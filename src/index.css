@@ -265,19 +265,38 @@
     min-width: 100px;
   }
 
+  /* Premium Typography */
+  .progression-headline {
+    font-family: 'SF Pro Display', 'Inter', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+
+  @media (min-width: 640px) {
+    .progression-headline {
+      font-size: 3.75rem;
+    }
+  }
+
   .badge-title {
+    font-family: 'SF Pro Display', 'Inter', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
-    color: white;
+    color: #FFFFFF;
     margin-bottom: 4px;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
   }
 
   .badge-description {
+    font-family: 'SF Pro Display', 'Inter', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 0.75rem;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.7);
+    color: #CCCCCC;
     margin: 0;
+    letter-spacing: 0.03em;
   }
 
   /* Individual Badge Glows */
