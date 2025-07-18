@@ -38,11 +38,11 @@ export function FAQSection() {
   const rightColumnFaqs = faqs.filter((_, index) => index % 2 === 1);
 
   return (
-    <section className="bg-black pt-36 pb-48 px-4">
+    <section className="bg-black pt-36 pb-36 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Gradient Headline */}
         <div className="text-center mb-40">
-          <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black bg-gradient-to-b from-white to-white/90 bg-clip-text text-transparent mb-8 tracking-tight">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black bg-gradient-to-b from-white to-white/90 bg-clip-text text-transparent mb-8 tracking-tight">
             Everything you're wondering
           </h2>
         </div>
