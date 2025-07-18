@@ -108,7 +108,7 @@ export function ProgressionSection() {
           {ranks.map((rank, index) => (
             <div
               key={rank.name}
-              className={`badge-container ${rank.glow}-glow snap-center flex-shrink-0 transition-transform duration-300 ease-out hover:scale-105 cursor-pointer`}
+              className={`badge-container ${rank.glow}-glow snap-center flex-shrink-0 transition-all duration-[250ms] ease-out hover:scale-[1.15] hover:-translate-y-[5px] hover:brightness-[1.2] cursor-pointer`}
               style={{
                 transform: `
                   translateX(${rank.translateX}px) 
