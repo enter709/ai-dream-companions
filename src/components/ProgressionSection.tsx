@@ -75,7 +75,7 @@ export function ProgressionSection() {
             <span className="font-light">She</span>{" "}
             <span className="font-black text-purple-100">evolves</span>{" "}
             <span className="font-light">with</span>{" "}
-            <span className="font-bold">you</span>.
+            <span className="font-black">you</span>.
           </h2>
         </div>
         
