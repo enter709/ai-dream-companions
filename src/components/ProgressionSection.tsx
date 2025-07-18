@@ -70,7 +70,7 @@ export function ProgressionSection() {
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-16">
           <h2 className="progression-headline">
             <span className="font-light">She</span>{" "}
             <span className="font-black text-purple-100">evolves</span>{" "}
