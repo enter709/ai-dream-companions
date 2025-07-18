@@ -8,11 +8,8 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-purple rounded-lg flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white fill-current" />
-              </div>
               <span className="text-2xl font-bold text-white">
-                Devotion<span className="text-gradient-purple">AI</span>
+                DEVOTION
               </span>
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed">
