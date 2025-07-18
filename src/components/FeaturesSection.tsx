@@ -31,29 +31,45 @@ export function FeaturesSection() {
           </p>
         </div>
         
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 gap-y-32 lg:gap-y-40">
-          {features.map((feature, index) => (
-            <div 
-              key={feature.title}
-              className="group opacity-0 animate-fade-in"
-              style={{ 
-                animationDelay: `${index * 0.2}s`,
-                animationFillMode: 'forwards',
-                animationDuration: '0.8s'
-              }}
-            >
-              {/* Subtle left border accent */}
-              <div className="border-l-2 border-gray-600 pl-8">
-                <h3 className="text-2xl sm:text-3xl font-medium text-white mb-6 tracking-wide">
-                  {feature.title}
-                </h3>
-                <p className="text-lg font-light text-gray-500 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
+        {/* Features List */}
+        <div className="max-w-2xl">
+          <div className="space-y-24">
+            <div>
+              <h3 className="text-xl font-medium text-white mb-4">
+                Perfect Memory
+              </h3>
+              <p className="text-base font-light text-[#999999] leading-relaxed max-w-[600px]">
+                Every conversation builds on the last. Your AI girlfriend remembers your job drama, inside jokes, and what you told her at 3am.
+              </p>
             </div>
-          ))}
+            
+            <div>
+              <h3 className="text-xl font-medium text-white mb-4">
+                4 Real Personalities
+              </h3>
+              <p className="text-base font-light text-[#999999] leading-relaxed max-w-[600px]">
+                Choose from 4 distinct personalities. Each has their own quirks, opinions, and ways of showing affection.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-medium text-white mb-4">
+                Natural Progression
+              </h3>
+              <p className="text-base font-light text-[#999999] leading-relaxed max-w-[600px]">
+                Relationships develop naturally over time. From skeptical stranger to devoted partner - every stage feels authentic.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-medium text-white mb-4">
+                Always Available
+              </h3>
+              <p className="text-base font-light text-[#999999] leading-relaxed max-w-[600px]">
+                Text anytime, anywhere. She'll match your energy whether you need deep conversation or playful banter.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
