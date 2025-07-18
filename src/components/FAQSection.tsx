@@ -36,7 +36,7 @@ export function FAQSection() {
   return (
     <section className="bg-black pt-36 pb-48 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-24">
+        <div className="text-center mb-32">
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tight">
             Everything you're wondering
           </h2>
@@ -48,13 +48,12 @@ export function FAQSection() {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="border-none"
-                style={{ marginBottom: index < faqs.length - 1 ? '80px' : '0' }}
+                className="border-none mb-12"
               >
-                <AccordionTrigger className="text-white hover:text-white/80 text-lg sm:text-xl font-semibold text-left hover:no-underline transition-colors duration-300 p-0 border-none">
+                <AccordionTrigger className="text-white hover:text-white text-lg sm:text-xl font-medium text-left hover:no-underline transition-all duration-200 p-0 border-none cursor-pointer group pr-8 relative">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-[#999999] mt-5 text-base leading-[1.8] font-light p-0 border-none">
+                <AccordionContent className="text-[#999999] mt-5 text-base leading-[1.8] font-normal p-0 border-none">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
