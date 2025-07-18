@@ -6,7 +6,7 @@ import { ConnectionEvolutionSection } from "./ConnectionEvolutionSection";
 
 import { ProgressionSection } from "./ProgressionSection";
 
-import { PricingSection } from "./PricingSection";
+
 import { FAQSection } from "./FAQSection";
 import { Footer } from "./Footer";
 
@@ -21,7 +21,7 @@ export function LandingPage() {
       
       <ProgressionSection />
       
-      <PricingSection />
+      
       <FAQSection />
       <Footer />
     </div>
