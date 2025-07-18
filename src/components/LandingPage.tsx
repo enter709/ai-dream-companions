@@ -2,6 +2,7 @@ import { Header } from "./Header";
 import { HeroSection } from "./HeroSection";
 import { FeaturesSection } from "./FeaturesSection";
 import { MemoryComparisonSection } from "./MemoryComparisonSection";
+import { ConnectionEvolutionSection } from "./ConnectionEvolutionSection";
 import { ComparisonSection } from "./ComparisonSection";
 import { ProgressionSection } from "./ProgressionSection";
 import { TestimonialsSection } from "./TestimonialsSection";
@@ -16,6 +17,7 @@ export function LandingPage() {
       <HeroSection />
       <FeaturesSection />
       <MemoryComparisonSection />
+      <ConnectionEvolutionSection />
       <ComparisonSection />
       <ProgressionSection />
       <TestimonialsSection />
