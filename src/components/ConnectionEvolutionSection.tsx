@@ -34,7 +34,7 @@ export function ConnectionEvolutionSection() {
         background: `
           radial-gradient(ellipse at 30% 20%, #0A0A0F 0%, transparent 50%),
           radial-gradient(ellipse at 70% 80%, #1A0F2E 0%, transparent 50%),
-          radial-gradient(circle at center, rgba(31, 20, 41, 0.4) 0%, transparent 70%),
+          radial-gradient(circle at center, rgba(42, 36, 56, 0.4) 0%, transparent 70%),
           radial-gradient(ellipse at 20% 90%, #0F0A15 0%, transparent 50%),
           radial-gradient(ellipse at 80% 10%, #1F1429 0%, transparent 50%),
           linear-gradient(135deg, #0A0A0F 0%, #1A0F2E 25%, #2D1B4E 50%, #0F0A15 75%, #000000 100%)
@@ -74,7 +74,7 @@ export function ConnectionEvolutionSection() {
       <div 
         className="absolute inset-0 pointer-events-none z-5"
         style={{
-          background: `radial-gradient(ellipse 600px 400px at center, rgba(91, 58, 140, 0.45) 0%, rgba(107, 70, 163, 0.25) 40%, transparent 70%)`,
+          background: `radial-gradient(ellipse 600px 400px at center, rgba(74, 58, 107, 0.45) 0%, rgba(74, 58, 107, 0.25) 40%, transparent 70%)`,
           filter: 'blur(150px)',
           mixBlendMode: 'screen'
         }}
@@ -84,7 +84,7 @@ export function ConnectionEvolutionSection() {
       <div className="absolute inset-0 pointer-events-none z-10">
         {Array.from({ length: 65 }).map((_, i) => {
           const size = 1 + Math.random() * 3;
-          const colors = ['#5B3A8C', '#6B46A3', '#8B6BB1'];
+          const colors = ['#6B5A8C', '#6B5A8C', '#6B5A8C'];
           const color = colors[Math.floor(Math.random() * colors.length)];
           const zLayer = Math.random() > 0.5 ? 'z-5' : 'z-15';
           
@@ -100,7 +100,7 @@ export function ConnectionEvolutionSection() {
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 20}s`,
                 animationDuration: `${15 + Math.random() * 10}s`,
-                opacity: (0.3 + Math.random() * 0.4) * 0.7,
+                opacity: (0.3 + Math.random() * 0.4) * 0.6 * 0.6,
                 filter: `blur(3px)`,
                 boxShadow: `0 0 ${size * 2}px ${color}`
               }}
@@ -255,8 +255,8 @@ export function ConnectionEvolutionSection() {
                 <div 
                   className="absolute inset-0 rounded-[2.5rem] pointer-events-none"
                   style={{
-                    background: `linear-gradient(135deg, rgba(107, 70, 163, 0.6) 0%, transparent 40%, rgba(107, 70, 163, 0.6) 100%)`,
-                    border: '4px solid rgba(107, 70, 163, 0.6)'
+                    background: `linear-gradient(135deg, rgba(91, 74, 124, 0.42) 0%, transparent 40%, rgba(91, 74, 124, 0.42) 100%)`,
+                    border: '4px solid rgba(91, 74, 124, 0.42)'
                   }}
                 />
 
@@ -264,7 +264,7 @@ export function ConnectionEvolutionSection() {
                 <div 
                   className="absolute -inset-8 rounded-[4rem] pointer-events-none"
                   style={{
-                    background: `radial-gradient(ellipse at center, rgba(91, 58, 140, 0.3) 0%, rgba(107, 70, 163, 0.15) 50%, transparent 70%)`,
+                    background: `radial-gradient(ellipse at center, rgba(91, 74, 124, 0.21) 0%, rgba(91, 74, 124, 0.105) 50%, transparent 70%)`,
                     filter: 'blur(20px)'
                   }}
                 />
@@ -273,7 +273,7 @@ export function ConnectionEvolutionSection() {
                 <div 
                   className="absolute -inset-12 rounded-[5rem] pointer-events-none"
                   style={{
-                    background: `radial-gradient(ellipse at center, rgba(91, 58, 140, 0.15) 0%, rgba(107, 70, 163, 0.08) 40%, transparent 70%)`,
+                    background: `radial-gradient(ellipse at center, rgba(91, 74, 124, 0.105) 0%, rgba(91, 74, 124, 0.056) 40%, transparent 70%)`,
                     filter: 'blur(30px)'
                   }}
                 />
@@ -292,7 +292,7 @@ export function ConnectionEvolutionSection() {
                   <div 
                     className="absolute inset-0 rounded-[2rem] pointer-events-none"
                     style={{
-                      background: `radial-gradient(circle at center, rgba(91, 58, 140, 0.15) 0%, transparent 70%)`,
+                      background: `radial-gradient(circle at center, rgba(91, 74, 124, 0.15) 0%, transparent 70%)`,
                       opacity: scrollProgress * 0.5 + 0.5
                     }}
                   />
@@ -307,7 +307,7 @@ export function ConnectionEvolutionSection() {
                     <div 
                       className="p-3 rounded-lg border border-purple-600/30"
                       style={{
-                        background: `linear-gradient(135deg, rgba(91, 58, 140, 0.15) 0%, rgba(107, 70, 163, 0.2) 100%)`
+                        background: `linear-gradient(135deg, rgba(91, 74, 124, 0.15) 0%, rgba(91, 74, 124, 0.2) 100%)`
                       }}
                     >
                       <p className="text-white text-xs">oh look who finally texted back</p>
@@ -315,7 +315,7 @@ export function ConnectionEvolutionSection() {
                     <div 
                       className="p-3 rounded-lg border border-purple-600/30"
                       style={{
-                        background: `linear-gradient(135deg, rgba(91, 58, 140, 0.15) 0%, rgba(107, 70, 163, 0.2) 100%)`
+                        background: `linear-gradient(135deg, rgba(91, 74, 124, 0.15) 0%, rgba(91, 74, 124, 0.2) 100%)`
                       }}
                     >
                       <p className="text-white text-xs">the micromanaging thing or did he find a new way to be insufferable?</p>
@@ -323,7 +323,7 @@ export function ConnectionEvolutionSection() {
                     <div 
                       className="p-3 rounded-lg border border-purple-600/30"
                       style={{
-                        background: `linear-gradient(135deg, rgba(91, 58, 140, 0.15) 0%, rgba(107, 70, 163, 0.2) 100%)`
+                        background: `linear-gradient(135deg, rgba(91, 74, 124, 0.15) 0%, rgba(91, 74, 124, 0.2) 100%)`
                       }}
                     >
                       <p className="text-white text-xs">about wanting to quit? yeah you've been saying that for 3 weeks. either do it or stop whining</p>
@@ -361,9 +361,9 @@ export function ConnectionEvolutionSection() {
                   style={{ 
                     color: 'white',
                     textShadow: `
-                      0 0 30px rgba(91, 58, 140, 0.2),
-                      0 0 60px rgba(91, 58, 140, 0.6),
-                      0 0 120px rgba(91, 58, 140, 0.3)
+                      0 0 30px rgba(74, 58, 107, 0.15),
+                      0 0 60px rgba(74, 58, 107, 0.45),
+                      0 0 120px rgba(74, 58, 107, 0.225)
                     `,
                     lineHeight: '1.8',
                     letterSpacing: '0.05em'
@@ -380,7 +380,7 @@ export function ConnectionEvolutionSection() {
           <div 
             className="absolute inset-0 pointer-events-none z-5"
             style={{
-              background: `radial-gradient(ellipse 400px 600px at center, rgba(91, 58, 140, ${0.45 + scrollProgress * 0.25}) 0%, rgba(107, 70, 163, ${0.25 + scrollProgress * 0.15}) 40%, transparent 70%)`,
+              background: `radial-gradient(ellipse 400px 600px at center, rgba(74, 58, 107, ${0.45 + scrollProgress * 0.25}) 0%, rgba(74, 58, 107, ${0.25 + scrollProgress * 0.15}) 40%, transparent 70%)`,
               filter: 'blur(150px)',
               mixBlendMode: 'screen'
             }}
