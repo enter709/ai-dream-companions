@@ -98,26 +98,32 @@ const PricingPage = () => {
       {/* Toggle Tabs */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto flex justify-center">
-          <div className="bg-muted/20 p-1 rounded-full backdrop-blur-sm border border-border/50">
+          <div className="flex gap-10">
             <button
               onClick={() => setActiveTab('subscription')}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`relative text-base font-medium transition-all duration-300 ${
                 activeTab === 'subscription'
-                  ? 'bg-primary text-primary-foreground shadow-lg'
-                  : 'text-muted-foreground hover:text-foreground'
+                  ? 'text-[#7C3AED]'
+                  : 'text-[#666666] hover:text-white'
               }`}
             >
               Subscription Plans
+              {activeTab === 'subscription' && (
+                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#7C3AED] transition-all duration-300"></div>
+              )}
             </button>
             <button
               onClick={() => setActiveTab('packs')}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`relative text-base font-medium transition-all duration-300 ${
                 activeTab === 'packs'
-                  ? 'bg-primary text-primary-foreground shadow-lg'
-                  : 'text-muted-foreground hover:text-foreground'
+                  ? 'text-[#7C3AED]'
+                  : 'text-[#666666] hover:text-white'
               }`}
             >
               Message Packs
+              {activeTab === 'packs' && (
+                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#7C3AED] transition-all duration-300"></div>
+              )}
             </button>
           </div>
         </div>
@@ -127,29 +133,30 @@ const PricingPage = () => {
       {activeTab === 'subscription' && (
         <section className="py-12 px-4 mb-24 relative">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-20 items-end">
+            <div className="grid md:grid-cols-3 gap-24 items-end">
               {pricingTiers.map((tier, index) => (
                 <div 
                   key={tier.name} 
                   className={`relative group transition-all duration-300 hover:-translate-y-1 ${
-                    tier.popular ? 'md:-translate-y-5 md:scale-105' : ''
+                    tier.popular ? 'md:-translate-y-2 md:scale-105' : ''
                   }`}
                 >
-                  {/* Premium glow for Plus plan */}
+                  {/* Subtle premium glow for Popular plan */}
                   {tier.popular && (
-                    <div className="absolute inset-0 bg-purple-500/20 rounded-2xl blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-purple-500/8 rounded-2xl blur-[60px] scale-110 opacity-40 group-hover:opacity-60 transition-opacity duration-300"></div>
                   )}
                   
-                  <Card className={`relative ${tier.bg} backdrop-blur-sm border-none shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 h-full flex flex-col overflow-hidden`}>
-                    {tier.popular && (
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                        <Badge className="bg-purple-600 text-white text-xs tracking-wider uppercase">
-                          RECOMMENDED
-                        </Badge>
-                      </div>
-                    )}
-                    
-                    <CardHeader className="text-center pb-8 flex-none relative">
+                  <Card className={`relative ${tier.bg} backdrop-blur-sm border-none shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden`}>
+                    <CardHeader className="text-center pb-8 flex-none relative p-10">
+                      {/* RECOMMENDED badge above plan name */}
+                      {tier.popular && (
+                        <div className="mb-2.5">
+                          <span className="text-[#7C3AED] text-xs font-medium tracking-[0.1em] uppercase">
+                            RECOMMENDED
+                          </span>
+                        </div>
+                      )}
+                      
                       {/* Plan name with different weights */}
                       <CardTitle className={`text-4xl mb-6 text-white tracking-wide ${
                         tier.name === 'Starter' ? 'font-normal' : 
@@ -158,13 +165,13 @@ const PricingPage = () => {
                         {tier.name}
                       </CardTitle>
                       
-                      {/* Massive price display */}
+                      {/* Massive price display with proper sizing */}
                       <div className="mb-6">
-                        <div className="flex items-baseline justify-center gap-1">
+                        <div className="flex items-baseline justify-center">
                           <span className="text-6xl md:text-7xl font-bold text-white">{tier.price}</span>
-                          <span className="text-2xl text-gray-400 font-normal">{tier.decimal}</span>
+                          <span className="text-3xl text-gray-400 font-normal">{tier.decimal}</span>
                         </div>
-                        <div className="text-gray-400 text-sm mt-1">{tier.period}</div>
+                        <div className="text-gray-400 text-xs mt-1">{tier.period}</div>
                       </div>
                       
                       {/* Powerful description */}
@@ -178,20 +185,20 @@ const PricingPage = () => {
                       )}
                     </CardHeader>
                     
-                    <CardContent className="flex flex-col flex-1 px-8">
-                      {/* Feature presentation without checkmarks */}
+                    <CardContent className="flex flex-col flex-1 p-10">
+                      {/* Feature presentation with bolder numbers */}
                       <div className="space-y-6 flex-1 mb-8">
                         {tier.features.map((feature, featureIndex) => (
                           <div key={featureIndex} className="text-center">
-                            <div className="text-2xl font-bold text-white mb-1">{feature.number}</div>
+                            <div className="text-2xl font-black text-white mb-1">{feature.number}</div>
                             <div className="text-gray-300 text-sm leading-relaxed">{feature.desc}</div>
                           </div>
                         ))}
                       </div>
                       
-                      {/* CTA differentiation */}
+                      {/* Enhanced CTA buttons */}
                       <Button 
-                        className={`w-full h-14 text-base font-semibold transition-all duration-300 ${
+                        className={`w-full h-14 text-base font-semibold transition-all duration-300 min-h-[48px] ${
                           tier.variant === 'ghost' 
                             ? 'bg-transparent border-2 border-gray-600 text-white hover:bg-white hover:text-black' 
                             : tier.variant === 'primary'
