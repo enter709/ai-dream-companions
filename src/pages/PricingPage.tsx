@@ -64,14 +64,38 @@ const PricingPage = () => {
 
   const messagePacks = [
     {
-      messages: "500 messages",
-      price: "$4.99",
-      badge: null
+      name: "Starter Pack",
+      messages: "500",
+      price: "$4",
+      decimal: ".99",
+      description: "Perfect for testing deeper",
+      cta: "Add to Cart",
+      variant: "ghost",
+      popular: false,
+      bg: "bg-[#1A1A1A]"
     },
     {
-      messages: "2,000 messages",
-      price: "$14.99",
-      badge: "25% savings"
+      name: "Value Pack",
+      messages: "2,000",
+      price: "$14",
+      decimal: ".99",
+      description: "Most popular choice",
+      subtext: "25% savings per message",
+      cta: "Add to Cart",
+      variant: "primary",
+      popular: true,
+      bg: "bg-gradient-to-br from-purple-900/20 to-purple-800/20"
+    },
+    {
+      name: "Power User",
+      messages: "5,000",
+      price: "$29",
+      decimal: ".99",
+      description: "For the truly devoted",
+      cta: "Go Big",
+      variant: "premium",
+      popular: false,
+      bg: "bg-black border border-purple-500/50"
     }
   ];
 
@@ -220,29 +244,88 @@ const PricingPage = () => {
 
       {/* Message Packs */}
       {activeTab === 'packs' && (
-        <section className="py-20 px-4 mb-24">
-          <div className="max-w-3xl mx-auto">
+        <section className="py-12 px-4 mb-24 relative">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-2xl font-bold text-white text-center mb-16">
               Need More Messages?
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-3 gap-24 items-start">
               {messagePacks.map((pack, index) => (
-                <Card key={index} className="bg-card/30 border-border/50 backdrop-blur-sm h-full flex flex-col">
-                  <CardHeader className="text-center flex-1 flex flex-col justify-center py-8">
-                    {pack.badge && (
-                      <Badge className="self-center mb-4 bg-green-600 text-white text-xs">
-                        {pack.badge}
-                      </Badge>
-                    )}
-                    <CardTitle className="text-lg font-bold text-white mb-3">{pack.messages}</CardTitle>
-                    <div className="text-2xl font-bold text-white">{pack.price}</div>
-                  </CardHeader>
-                  <CardContent className="pt-0 pb-6">
-                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground h-10 text-sm">
-                      Buy Now
-                    </Button>
-                  </CardContent>
-                </Card>
+                <div 
+                  key={pack.name} 
+                  className={`relative group transition-all duration-300 hover:-translate-y-1 ${
+                    pack.popular ? 'md:-translate-y-4' : ''
+                  }`}
+                >
+                  {/* Premium glow for Value Pack */}
+                  {pack.popular && (
+                    <div className="absolute inset-0 bg-purple-500/50 rounded-2xl blur-[100px] scale-110 opacity-50 group-hover:opacity-60 transition-opacity duration-300"></div>
+                  )}
+                  
+                  <Card className={`relative ${pack.bg} backdrop-blur-sm border-none shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden`}>
+                    <CardHeader className="text-center pb-8 flex-none relative p-12">
+                      {/* BEST VALUE badge above plan name */}
+                      {pack.popular && (
+                        <div className="mb-2.5">
+                          <span className="text-[#7C3AED] text-[10px] font-medium tracking-[0.1em] uppercase">
+                            BEST VALUE
+                          </span>
+                        </div>
+                      )}
+                      
+                      {/* Pack name */}
+                      <CardTitle className={`text-4xl mb-6 text-white tracking-wide ${
+                        pack.name === 'Starter Pack' ? 'font-normal' : 
+                        pack.name === 'Value Pack' ? 'font-bold' : 'font-black'
+                      }`}>
+                        {pack.name}
+                      </CardTitle>
+                      
+                      {/* Message count display */}
+                      <div className="mb-6">
+                        <div className="text-center">
+                          <div className="text-4xl font-black text-white mb-1">{pack.messages}</div>
+                          <div className="text-gray-300 text-sm">messages</div>
+                        </div>
+                      </div>
+
+                      {/* Price display */}
+                      <div className="mb-6">
+                        <div className="flex items-baseline justify-center">
+                          <span className="text-5xl md:text-6xl font-bold text-white">{pack.price}</span>
+                          <span className="text-2xl text-gray-400 font-normal">{pack.decimal}</span>
+                        </div>
+                        <div className="text-gray-400 text-xs mt-1">one-time</div>
+                      </div>
+                      
+                      {/* Description */}
+                      <CardDescription className="text-gray-300 text-lg font-medium">
+                        {pack.description}
+                      </CardDescription>
+                      
+                      {/* Subtext for savings */}
+                      {pack.subtext && (
+                        <p className="text-purple-300 text-sm mt-4 font-medium">{pack.subtext}</p>
+                      )}
+                    </CardHeader>
+                    
+                    <CardContent className="flex flex-col flex-1 p-12">
+                      {/* CTA buttons */}
+                      <Button 
+                        className={`w-full h-14 text-base font-semibold transition-all duration-300 min-h-[48px] ${
+                          pack.variant === 'ghost' 
+                            ? 'bg-transparent border-2 border-gray-600 text-white hover:bg-white hover:text-black' 
+                            : pack.variant === 'primary'
+                            ? 'bg-purple-600 hover:bg-purple-500 text-white shadow-lg hover:shadow-purple-500/30'
+                            : 'bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white shadow-lg hover:shadow-purple-500/40'
+                        }`}
+                      >
+                        {pack.cta}
+                        {pack.popular && <span className="ml-2 text-xs opacity-75">• Best Value</span>}
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
             <p className="text-center text-gray-400 mt-12 text-sm">
