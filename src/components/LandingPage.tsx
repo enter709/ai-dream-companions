@@ -5,7 +5,7 @@ import { MemoryComparisonSection } from "./MemoryComparisonSection";
 import { ConnectionEvolutionSection } from "./ConnectionEvolutionSection";
 
 import { ProgressionSection } from "./ProgressionSection";
-import { TestimonialsSection } from "./TestimonialsSection";
+
 import { PricingSection } from "./PricingSection";
 import { FAQSection } from "./FAQSection";
 import { Footer } from "./Footer";
@@ -20,7 +20,7 @@ export function LandingPage() {
       <ConnectionEvolutionSection />
       
       <ProgressionSection />
-      <TestimonialsSection />
+      
       <PricingSection />
       <FAQSection />
       <Footer />
