@@ -197,14 +197,13 @@ export function ConnectionEvolutionSection() {
           >
             <div className="text-center max-w-md">
               <p 
-                className="text-3xl font-bold leading-relaxed"
+                className="text-3xl font-bold"
                 style={{ 
                   color: 'white',
-                  textShadow: `
-                    0 0 30px rgba(124, 58, 237, 0.7),
-                    0 0 60px rgba(124, 58, 237, 0.3)
-                  `,
-                  lineHeight: '1.8'
+                  textShadow: `0 0 30px rgba(107, 90, 140, 0.15)`,
+                  lineHeight: '1.6',
+                  letterSpacing: '0.05em',
+                  animation: 'opacity-pulse 5s ease-in-out infinite'
                 }}
               >
                 One forgets everything.
@@ -213,15 +212,6 @@ export function ConnectionEvolutionSection() {
               </p>
             </div>
           </div>
-
-          {/* Purple light bleed between phones */}
-          <div 
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: `radial-gradient(ellipse 200px 800px at center, rgba(124, 58, 237, ${0.1 + scrollProgress * 0.2}) 0%, transparent 70%)`,
-              filter: 'blur(2px)'
-            }}
-          />
         </div>
       </div>
     </section>

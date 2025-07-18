@@ -48,6 +48,18 @@
     --character-card-border: 0 0% 20%;
     --character-glow: 261 84% 47% / 0.3;
     --character-hover-glow: 261 84% 47% / 0.6;
+  }
+}
+
+/* Custom Animations */
+@keyframes opacity-pulse {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
     
     /* Platinum Accent - #E5E4E2 / RGB(229, 228, 226) */
     --platinum: 40 8% 89%;
