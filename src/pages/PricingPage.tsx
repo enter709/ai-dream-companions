@@ -11,7 +11,7 @@ const PricingPage = () => {
 
   const pricingTiers = [
     {
-      name: "Starter",
+      name: "Basic",
       price: "$14",
       decimal: ".99",
       period: "/month",
@@ -27,7 +27,7 @@ const PricingPage = () => {
       bg: "bg-[#1A1A1A]"
     },
     {
-      name: "Popular",
+      name: "Plus",
       price: "$24",
       decimal: ".99",
       period: "/month",
@@ -44,7 +44,7 @@ const PricingPage = () => {
       social: "Chosen by 73% of members"
     },
     {
-      name: "Ultimate",
+      name: "Max",
       price: "$44",
       decimal: ".99",
       period: "/month",
@@ -133,17 +133,17 @@ const PricingPage = () => {
       {activeTab === 'subscription' && (
         <section className="py-12 px-4 mb-24 relative">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-24 items-end">
+            <div className="grid md:grid-cols-3 gap-24 items-start">
               {pricingTiers.map((tier, index) => (
                 <div 
                   key={tier.name} 
                   className={`relative group transition-all duration-300 hover:-translate-y-1 ${
-                    tier.popular ? 'md:-translate-y-2 md:scale-105' : ''
+                    tier.popular ? 'md:-translate-y-4' : ''
                   }`}
                 >
-                  {/* Subtle premium glow for Popular plan */}
+                  {/* Premium glow for Plus plan */}
                   {tier.popular && (
-                    <div className="absolute inset-0 bg-purple-500/8 rounded-2xl blur-[60px] scale-110 opacity-40 group-hover:opacity-60 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-purple-500/50 rounded-2xl blur-[100px] scale-110 opacity-50 group-hover:opacity-60 transition-opacity duration-300"></div>
                   )}
                   
                   <Card className={`relative ${tier.bg} backdrop-blur-sm border-none shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden`}>
@@ -159,8 +159,8 @@ const PricingPage = () => {
                       
                       {/* Plan name with different weights */}
                       <CardTitle className={`text-4xl mb-6 text-white tracking-wide ${
-                        tier.name === 'Starter' ? 'font-normal' : 
-                        tier.name === 'Popular' ? 'font-bold' : 'font-black'
+                        tier.name === 'Basic' ? 'font-normal' : 
+                        tier.name === 'Plus' ? 'font-bold' : 'font-black'
                       }`}>
                         {tier.name}
                       </CardTitle>
