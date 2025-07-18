@@ -4,7 +4,7 @@ import { FeaturesSection } from "./FeaturesSection";
 
 import { ConnectionEvolutionSection } from "./ConnectionEvolutionSection";
 
-import { ProgressionSection } from "./ProgressionSection";
+
 
 import { PricingSection } from "./PricingSection";
 import { FAQSection } from "./FAQSection";
@@ -19,7 +19,7 @@ export function LandingPage() {
       
       <ConnectionEvolutionSection />
       
-      <ProgressionSection />
+      
       
       <PricingSection />
       <FAQSection />
