@@ -21,7 +21,7 @@ const PricingPage = () => {
         { number: "All 4", desc: "girlfriends included" },
         { number: "Bronze to Diamond", desc: "full progression" }
       ],
-      cta: "Start Free",
+      cta: "Get Started",
       variant: "ghost",
       popular: false,
       bg: "bg-[#1A1A1A]"
@@ -37,7 +37,7 @@ const PricingPage = () => {
         { number: "2x faster", desc: "image unlocks" },
         { number: "Priority", desc: "response times" }
       ],
-      cta: "Start Free Trial",
+      cta: "Get Started",
       variant: "primary",
       popular: true,
       bg: "bg-gradient-to-br from-purple-900/20 to-purple-800/20",
@@ -147,11 +147,11 @@ const PricingPage = () => {
                   )}
                   
                   <Card className={`relative ${tier.bg} backdrop-blur-sm border-none shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden`}>
-                    <CardHeader className="text-center pb-8 flex-none relative p-10">
+                    <CardHeader className="text-center pb-8 flex-none relative p-12">
                       {/* RECOMMENDED badge above plan name */}
                       {tier.popular && (
                         <div className="mb-2.5">
-                          <span className="text-[#7C3AED] text-xs font-medium tracking-[0.1em] uppercase">
+                          <span className="text-[#7C3AED] text-[10px] font-medium tracking-[0.1em] uppercase">
                             RECOMMENDED
                           </span>
                         </div>
@@ -169,7 +169,7 @@ const PricingPage = () => {
                       <div className="mb-6">
                         <div className="flex items-baseline justify-center">
                           <span className="text-6xl md:text-7xl font-bold text-white">{tier.price}</span>
-                          <span className="text-3xl text-gray-400 font-normal">{tier.decimal}</span>
+                          <span className="text-2xl text-gray-400 font-normal">{tier.decimal}</span>
                         </div>
                         <div className="text-gray-400 text-xs mt-1">{tier.period}</div>
                       </div>
@@ -185,7 +185,7 @@ const PricingPage = () => {
                       )}
                     </CardHeader>
                     
-                    <CardContent className="flex flex-col flex-1 p-10">
+                    <CardContent className="flex flex-col flex-1 p-12">
                       {/* Feature presentation with bolder numbers */}
                       <div className="space-y-6 flex-1 mb-8">
                         {tier.features.map((feature, featureIndex) => (
